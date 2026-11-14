@@ -1,0 +1,4471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Echoes of the Cosmos: An Interstellar Journey</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+    <link rel="apple-touch-icon" href="/favicon.jpg" />
+    <meta name="theme-color" content="#1e224b" />
+    <meta
+      name="description"
+      content="An interactive children's web storybook for the 2026 NASA Space Apps Challenge following Emi the chubby little orange fox and Otty the plump brown sea otter across historic Moon and Mars exploration sites. Created by Team Suki to Sukses."
+    />
+    <meta property="og:title" content="Echoes of the Cosmos: An Interstellar Journey" />
+    <meta
+      property="og:description"
+      content="Join Emi the chubby little orange fox and Otty the friendly brown sea otter on an interstellar adventure to the Moon and Mars."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* =====================================================================
+         CENTRALIZED COSMIC PASTEL DESIGN SYSTEM & UNIFORM VECTOR TOKENS
+         ===================================================================== */
+      :root {
+        /* Cosmic Pastel Palette */
+        --pastel-indigo-deep: #1e224b;
+        --pastel-indigo: #393f7d;
+        --pastel-indigo-soft: #5c63a8;
+        --pastel-lavender: #c7b8ea;
+        --pastel-lavender-soft: #ede7fb;
+        --pastel-amber: #ffbe76;
+        --pastel-amber-soft: #fff2dc;
+        --pastel-rose: #f3a6b8;
+        --pastel-rose-soft: #fdebf0;
+        --pastel-sky: #9fd8f8;
+        --pastel-sky-soft: #e7f6fd;
+
+        /* Unified Gradients */
+        --grad-page-bg: radial-gradient(circle at 18% 12%, #393f7d 0%, #232859 48%, #15183b 100%);
+        --grad-cover-sky: linear-gradient(155deg, #2b2f6c 0%, #5c63a8 52%, #b99bd6 100%);
+        --grad-twilight: linear-gradient(170deg, #2a2f6b 0%, #6d69a8 55%, #f3a6b8 100%);
+        --grad-space: linear-gradient(165deg, #1e224b 0%, #393f7d 58%, #7f78b8 100%);
+        --grad-cabin: linear-gradient(155deg, #5d4f7a 0%, #987eb8 52%, #f4c095 100%);
+        --grad-lunar: linear-gradient(170deg, #1f2452 0%, #454b8c 62%, #d8d5eb 100%);
+        --grad-mars: linear-gradient(170deg, #4b3869 0%, #a9697f 52%, #f2a98c 100%);
+        --grad-mars-night: linear-gradient(170deg, #1f224d 0%, #4d4785 58%, #d48c84 100%);
+        --grad-cta: linear-gradient(135deg, #ffbe76 0%, #ff9a52 100%);
+
+        /* Uniform Surfaces & Typography */
+        --book-paper: #fffcf7;
+        --book-border: #e5dcf0;
+        --ink-dark: #23203c;
+        --ink-muted: #585578;
+        --ink-light: #fcfaff;
+        --ink-light-muted: #d8d4f2;
+
+        /* Character Identity Tokens */
+        --emi-fur: #ff8f3f;
+        --emi-fur-shade: #e67225;
+        --emi-muzzle: #fff7ed;
+        --emi-helmet: #ffffff;
+        --emi-helmet-rim: #cbd5e1;
+        --emi-bg: #fff3e5;
+        --emi-border: #f7be8b;
+        --emi-accent: #c9520e;
+
+        --otty-fur: #9a6444;
+        --otty-fur-shade: #7c4d32;
+        --otty-muzzle: #ecd6c2;
+        --otty-scarf: #87cefa;
+        --otty-scarf-shade: #54aee8;
+        --otty-bg: #e8f6fd;
+        --otty-border: #8ecae6;
+        --otty-accent: #0b698b;
+
+        --flik-bg: #eef0fc;
+        --flik-border: #a5b0ec;
+        --flik-accent: #32439e;
+
+        --oppy-bg: #fdeceb;
+        --oppy-border: #f0a79b;
+        --oppy-accent: #b83d25;
+
+        --narrator-bg: #f7f3eb;
+        --narrator-border: #e2d9cb;
+
+        --nasa-sky: #e7f1ff;
+        --nasa-border: #9bc1fa;
+        --nasa-ink: #1b367a;
+
+        /* Uniform Cartoon Stroke & Card Geometry */
+        --cartoon-stroke: #2b2342;
+        --cartoon-stroke-w: 3;
+        --radius-book: 28px;
+        --radius-panel: 22px;
+        --radius-bubble: 18px;
+        --radius-btn: 16px;
+        --card-shadow: 0 24px 56px rgba(13, 15, 42, 0.42);
+        --panel-shadow: 0 12px 28px rgba(35, 32, 60, 0.14);
+
+        --font-display: 'Fredoka', 'Trebuchet MS', sans-serif;
+        --font-body: 'Nunito', 'Segoe UI', sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--grad-page-bg);
+        color: var(--ink-light);
+        line-height: 1.6;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        min-height: 100dvh;
+      }
+
+      /* Uniform Cartoon Vector Outline Class */
+      .cartoon-stroke {
+        stroke: var(--cartoon-stroke);
+        stroke-width: var(--cartoon-stroke-w);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      /* Subtle Cosmic Starfield Backdrop */
+      .starfield {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background-image:
+          radial-gradient(1.5px 1.5px at 45px 65px, rgba(255, 255, 255, 0.78) 50%, transparent 100%),
+          radial-gradient(1.4px 1.4px at 150px 195px, rgba(220, 212, 255, 0.75) 50%, transparent 100%),
+          radial-gradient(1.8px 1.8px at 265px 85px, rgba(255, 234, 190, 0.8) 50%, transparent 100%),
+          radial-gradient(1.3px 1.3px at 315px 265px, rgba(255, 255, 255, 0.65) 50%, transparent 100%),
+          radial-gradient(2px 2px at 95px 320px, rgba(190, 232, 255, 0.8) 50%, transparent 100%),
+          radial-gradient(1.8px 1.8px at 390px 150px, rgba(255, 200, 215, 0.75) 50%, transparent 100%);
+        background-size: 420px 380px;
+        animation: starTwinkle 7s ease-in-out infinite alternate;
+      }
+
+      @keyframes starTwinkle {
+        0% {
+          opacity: 0.62;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes pageTransition {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Top Header Bar (3-zone layout) */
+      .site-header {
+        position: relative;
+        z-index: 20;
+        background: rgba(23, 26, 62, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(199, 184, 234, 0.25);
+      }
+
+      .header-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand-btn {
+        background: none;
+        border: none;
+        padding: 4px 0;
+        cursor: pointer;
+        font-family: var(--font-display);
+        font-size: 1.24rem;
+        font-weight: 700;
+        color: var(--ink-light);
+        white-space: nowrap;
+        flex-shrink: 0;
+        text-align: left;
+        transition: opacity 0.18s ease;
+      }
+
+      .brand-btn:hover {
+        opacity: 0.85;
+      }
+
+      .header-menu-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header-status-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(199, 184, 234, 0.25);
+        border-radius: 14px;
+        padding: 8px 14px;
+        min-height: 42px;
+        color: var(--ink-light-muted);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 800;
+        cursor: pointer;
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+        transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+      }
+
+      .header-status-btn:hover,
+      .header-status-btn.is-open {
+        background: rgba(255, 255, 255, 0.16);
+        border-color: rgba(255, 190, 118, 0.55);
+        color: var(--ink-light);
+      }
+
+      .header-status-compact {
+        display: none;
+      }
+
+      .header-sep {
+        opacity: 0.5;
+      }
+
+      .header-caret {
+        font-size: 0.78rem;
+        opacity: 0.85;
+        transition: transform 0.18s ease;
+      }
+
+      .header-status-btn.is-open .header-caret {
+        transform: rotate(180deg);
+      }
+
+      .chapter-dropdown {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(310px, calc(100vw - 28px));
+        background: #1f2454;
+        border: 1.5px solid rgba(199, 184, 234, 0.45);
+        border-radius: 20px;
+        padding: 10px;
+        box-shadow: 0 22px 50px rgba(10, 12, 34, 0.65);
+        z-index: 60;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .chapter-dropdown[hidden] {
+        display: none;
+      }
+
+      .chapter-dropdown-title {
+        padding: 4px 10px 6px;
+        font-family: var(--font-display);
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--pastel-lavender);
+        letter-spacing: 0.02em;
+      }
+
+      .chapter-menu-item {
+        width: 100%;
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 12px;
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        color: var(--ink-light);
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-align: left;
+        transition: background 0.14s ease, border-color 0.14s ease;
+      }
+
+      .chapter-menu-item:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.11);
+      }
+
+      .chapter-menu-item.is-active {
+        background: var(--pastel-amber-soft);
+        color: var(--ink-dark);
+        border-color: var(--pastel-amber);
+      }
+
+      .chapter-menu-item:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .chapter-menu-meta {
+        font-size: 0.78rem;
+        font-weight: 800;
+        opacity: 0.78;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .voice-toggle-btn {
+        background: rgba(255, 255, 255, 0.12);
+        color: var(--ink-light);
+        border: 1px solid rgba(199, 184, 234, 0.35);
+        border-radius: 14px;
+        padding: 9px 16px;
+        min-height: 44px;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 800;
+        cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.18s ease, transform 0.15s ease, color 0.18s ease;
+      }
+
+      .voice-toggle-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
+      }
+
+      .voice-toggle-btn.is-on {
+        background: var(--pastel-amber-soft);
+        color: var(--ink-dark);
+        border-color: var(--pastel-amber);
+      }
+
+      /* Top Progress Bar */
+      .progress-track {
+        width: 100%;
+        height: 7px;
+        background: rgba(255, 255, 255, 0.12);
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--pastel-amber) 0%, var(--pastel-rose) 50%, var(--pastel-sky) 100%);
+        border-radius: 0 999px 999px 0;
+        transition: width 0.35s ease-in-out;
+      }
+
+      button:focus-visible,
+      a:focus-visible {
+        outline: 3px solid var(--pastel-amber);
+        outline-offset: 3px;
+      }
+
+      /* Main Storybook Stage */
+      .storybook-main {
+        position: relative;
+        z-index: 10;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 20px 36px;
+      }
+
+      .storybook-frame {
+        width: 100%;
+        max-width: 1080px;
+        animation: pageTransition 0.35s ease-in-out;
+      }
+
+      /* Uniform 4:3 Vector Art Stage */
+      .art-stage {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        border-radius: var(--radius-panel);
+        overflow: hidden;
+        border: 3px solid var(--pastel-lavender);
+        box-shadow: var(--panel-shadow);
+        background: var(--pastel-indigo-deep);
+        display: flex;
+      }
+
+      .art-stage img,
+      .art-stage svg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Interactive Scene Overlays & Hotspots */
+      .scene-dust-veil {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 55% 58%, rgba(205, 102, 62, 0.56) 0%, rgba(182, 86, 52, 0.42) 55%, rgba(154, 68, 42, 0.25) 100%);
+        backdrop-filter: sepia(0.28);
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+
+      .scene-hotspot-bar {
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        pointer-events: none;
+      }
+
+      .scene-hotspot-btn {
+        pointer-events: auto;
+        background: rgba(255, 252, 247, 0.94);
+        color: var(--ink-dark);
+        border: 2px solid var(--pastel-amber);
+        border-radius: 14px;
+        padding: 8px 14px;
+        min-height: 40px;
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 8px 18px rgba(18, 20, 48, 0.28);
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        white-space: nowrap;
+        transition: transform 0.16s ease, background 0.16s ease;
+      }
+
+      .scene-hotspot-btn:hover {
+        background: #ffffff;
+        transform: translateY(-2px);
+      }
+
+      .scene-hotspot-btn.is-done {
+        background: #dcfce7;
+        border-color: #22c55e;
+        color: #14532d;
+      }
+
+      .scene-status-readout {
+        pointer-events: none;
+        background: rgba(23, 26, 62, 0.86);
+        color: #fcfaff;
+        border: 1px solid rgba(199, 184, 234, 0.45);
+        border-radius: 12px;
+        padding: 6px 12px;
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+      }
+
+      @keyframes floatStar {
+        0% {
+          opacity: 0;
+          transform: translateY(14px) scale(0.7) rotate(0deg);
+        }
+        20% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-70px) scale(1.2) rotate(25deg);
+        }
+      }
+
+      .scene-float-item {
+        position: absolute;
+        font-size: 1.5rem;
+        pointer-events: none;
+        animation: floatStar 1.4s ease-out forwards;
+        filter: drop-shadow(0 3px 6px rgba(15, 18, 45, 0.35));
+      }
+
+      /* Cover / Landing Screen */
+      .landing-card {
+        background: var(--book-paper);
+        color: var(--ink-dark);
+        border: 1px solid var(--book-border);
+        border-radius: var(--radius-book);
+        padding: 38px;
+        box-shadow: var(--card-shadow);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+        align-items: center;
+      }
+
+      .landing-copy {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .story-kicker {
+        font-size: 0.92rem;
+        font-weight: 800;
+        color: var(--pastel-indigo);
+      }
+
+      .landing-title {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 3.6vw, 3rem);
+        line-height: 1.14;
+        font-weight: 700;
+        color: var(--ink-dark);
+        text-wrap: balance;
+      }
+
+      .landing-intro {
+        margin: 0;
+        font-size: 1.12rem;
+        line-height: 1.7;
+        color: var(--ink-muted);
+        max-width: 52ch;
+      }
+
+      .team-credit-plaque {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        background: var(--pastel-amber-soft);
+        border: 1.5px solid var(--pastel-amber);
+        border-radius: 14px;
+        color: #6b3d05;
+        font-weight: 800;
+        font-size: 0.96rem;
+      }
+
+      @keyframes startPulse {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+          box-shadow: 0 10px 24px rgba(255, 165, 86, 0.34);
+        }
+        50% {
+          transform: translateY(-2px) scale(1.025);
+          box-shadow: 0 14px 32px rgba(255, 165, 86, 0.5);
+        }
+      }
+
+      .btn-start {
+        background: var(--grad-cta);
+        color: #241304;
+        border: 2px solid #e2893b;
+        border-radius: 18px;
+        padding: 15px 34px;
+        min-height: 56px;
+        font-family: var(--font-display);
+        font-size: 1.24rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+        box-shadow: 0 10px 24px rgba(255, 165, 86, 0.34);
+        transition: filter 0.18s ease, transform 0.18s ease;
+      }
+
+      #startReadingBtn {
+        animation: startPulse 2.6s ease-in-out infinite;
+      }
+
+      .btn-start:hover:not(:disabled) {
+        filter: brightness(1.04);
+        transform: translateY(-2px);
+      }
+
+      .btn-start:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+        filter: grayscale(0.35);
+        box-shadow: none;
+        transform: none;
+      }
+
+      .challenge-lock-note {
+        margin: -6px 0 0;
+        font-size: 0.9rem;
+        font-weight: 800;
+        color: var(--emi-accent);
+      }
+
+      /* Chapter Intro Screen */
+      .chapter-intro-card {
+        background: var(--book-paper);
+        color: var(--ink-dark);
+        border: 1px solid var(--book-border);
+        border-radius: var(--radius-book);
+        padding: 48px 40px;
+        box-shadow: var(--card-shadow);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        max-width: 820px;
+        margin: 0 auto;
+      }
+
+      .chapter-emblem {
+        width: 156px;
+        height: 156px;
+        border-radius: 28px;
+        overflow: hidden;
+        border: 3px solid var(--pastel-lavender);
+        box-shadow: var(--panel-shadow);
+      }
+
+      .chapter-kicker {
+        font-size: 0.96rem;
+        font-weight: 800;
+        color: var(--pastel-indigo);
+      }
+
+      .chapter-title {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 3.6vw, 2.85rem);
+        line-height: 1.15;
+        color: var(--ink-dark);
+        text-wrap: balance;
+      }
+
+      .chapter-subtitle {
+        margin: 0;
+        font-size: 1.18rem;
+        line-height: 1.6;
+        color: var(--ink-muted);
+        max-width: 48ch;
+      }
+
+      /* Story Panel Spread */
+      .panel-card {
+        background: var(--book-paper);
+        color: var(--ink-dark);
+        border: 1px solid var(--book-border);
+        border-radius: var(--radius-book);
+        padding: 28px;
+        box-shadow: var(--card-shadow);
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .panel-visual-col {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .panel-meta-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 0.9rem;
+        font-weight: 800;
+        color: var(--ink-muted);
+        padding: 0 4px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .panel-meta-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .panel-meta-chapter {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .panel-meta-count {
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .panel-meta-right {
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .replay-page-btn,
+      .mini-ctrl-btn {
+        background: var(--pastel-amber-soft);
+        color: #5b3404;
+        border: 1px solid var(--pastel-amber);
+        border-radius: 10px;
+        padding: 5px 11px;
+        min-height: 34px;
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 800;
+        cursor: pointer;
+        white-space: nowrap;
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
+      }
+
+      .mini-ctrl-btn {
+        background: var(--pastel-lavender-soft);
+        color: var(--pastel-indigo-deep);
+        border-color: var(--pastel-lavender);
+      }
+
+      .mini-ctrl-btn.is-muted {
+        background: #f1f5f9;
+        color: #475569;
+        border-color: #cbd5e1;
+      }
+
+      .replay-page-btn:hover,
+      .mini-ctrl-btn:hover {
+        filter: brightness(0.97);
+        transform: translateY(-1px);
+      }
+
+      .panel-story-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .narrator-box {
+        background: var(--narrator-bg);
+        border: 1.5px solid var(--narrator-border);
+        border-radius: var(--radius-bubble);
+        padding: 18px 20px;
+        cursor: pointer;
+        transition: box-shadow 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+      }
+
+      .narrator-box:hover {
+        border-color: #cbbba2;
+        transform: translateY(-1px);
+      }
+
+      .narrator-box.is-speaking {
+        border-color: var(--pastel-amber);
+        box-shadow: 0 0 0 3px rgba(255, 190, 118, 0.5), 0 10px 24px rgba(35, 32, 60, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .speaker-label {
+        font-family: var(--font-display);
+        font-size: 0.94rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .tap-hear-hint {
+        font-family: var(--font-body);
+        font-size: 0.76rem;
+        font-weight: 800;
+        opacity: 0.72;
+        white-space: nowrap;
+      }
+
+      .narrator-box .speaker-label {
+        color: #5b4d37;
+      }
+
+      .narrator-text {
+        margin: 0;
+        font-size: 1.12rem;
+        line-height: 1.65;
+        color: var(--ink-dark);
+        font-weight: 600;
+      }
+
+      /* Character Speech Bubbles with Uniform Vector Avatars */
+      .speech-bubble {
+        border-radius: var(--radius-bubble);
+        padding: 18px 20px;
+        border: 1.5px solid transparent;
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        cursor: pointer;
+        transition: box-shadow 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+      }
+
+      .speech-bubble:hover {
+        transform: translateY(-1px);
+      }
+
+      .speech-bubble.is-speaking {
+        transform: translateY(-2px);
+      }
+
+      .avatar-frame {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        background: #ffffff;
+        border: 1.5px solid rgba(43, 35, 66, 0.14);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .speech-content {
+        flex: 1;
+      }
+
+      .speech-bubble--emi {
+        background: var(--emi-bg);
+        border-color: var(--emi-border);
+      }
+
+      .speech-bubble--emi.is-speaking {
+        border-color: var(--emi-fur);
+        box-shadow: 0 0 0 3px rgba(255, 143, 63, 0.34), 0 10px 24px rgba(201, 82, 14, 0.14);
+      }
+
+      .speech-bubble--emi .speaker-label {
+        color: var(--emi-accent);
+      }
+
+      .speech-bubble--otty {
+        background: var(--otty-bg);
+        border-color: var(--otty-border);
+      }
+
+      .speech-bubble--otty.is-speaking {
+        border-color: var(--otty-scarf-shade);
+        box-shadow: 0 0 0 3px rgba(84, 174, 232, 0.36), 0 10px 24px rgba(11, 105, 139, 0.14);
+      }
+
+      .speech-bubble--otty .speaker-label {
+        color: var(--otty-accent);
+      }
+
+      .speech-bubble--flik {
+        background: var(--flik-bg);
+        border-color: var(--flik-border);
+      }
+
+      .speech-bubble--flik.is-speaking {
+        border-color: #6b7de0;
+        box-shadow: 0 0 0 3px rgba(79, 111, 216, 0.32), 0 10px 24px rgba(50, 67, 158, 0.14);
+      }
+
+      .speech-bubble--flik .speaker-label {
+        color: var(--flik-accent);
+      }
+
+      .speech-bubble--oppy {
+        background: var(--oppy-bg);
+        border-color: var(--oppy-border);
+      }
+
+      .speech-bubble--oppy.is-speaking {
+        border-color: #e67665;
+        box-shadow: 0 0 0 3px rgba(239, 107, 107, 0.32), 0 10px 24px rgba(184, 61, 37, 0.14);
+      }
+
+      .speech-bubble--oppy .speaker-label {
+        color: var(--oppy-accent);
+      }
+
+      .speech-quote {
+        margin: 0;
+        font-size: 1.12rem;
+        line-height: 1.6;
+        font-weight: 700;
+        color: var(--ink-dark);
+      }
+
+      /* Read-Along Word Highlighting */
+      .tts-word {
+        display: inline;
+        border-radius: 6px;
+        padding: 1px 2px;
+        margin: 0 -1px;
+        transition: background-color 0.14s ease, color 0.14s ease;
+      }
+
+      .tts-word.is-spoken {
+        background-color: rgba(255, 190, 118, 0.22);
+      }
+
+      .tts-word.is-active {
+        background-color: #ffe08a;
+        color: #1e1836;
+        box-shadow: 0 2px 0 rgba(226, 137, 59, 0.55);
+      }
+
+      .speech-bubble--otty .tts-word.is-spoken {
+        background-color: rgba(135, 206, 250, 0.26);
+      }
+
+      .speech-bubble--otty .tts-word.is-active {
+        background-color: #bfe8ff;
+        box-shadow: 0 2px 0 rgba(11, 105, 139, 0.38);
+      }
+
+      .speech-bubble--flik .tts-word.is-spoken {
+        background-color: rgba(165, 176, 236, 0.26);
+      }
+
+      .speech-bubble--flik .tts-word.is-active {
+        background-color: #d6dcff;
+        box-shadow: 0 2px 0 rgba(50, 67, 158, 0.38);
+      }
+
+      .speech-bubble--oppy .tts-word.is-spoken {
+        background-color: rgba(240, 167, 155, 0.28);
+      }
+
+      .speech-bubble--oppy .tts-word.is-active {
+        background-color: #ffd1ca;
+        box-shadow: 0 2px 0 rgba(184, 61, 37, 0.38);
+      }
+
+      .nasa-fact-box.is-speaking {
+        border-color: #5b9cf6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.28);
+      }
+
+      .nasa-fact-box .tts-word.is-spoken {
+        background-color: rgba(155, 193, 250, 0.28);
+      }
+
+      .nasa-fact-box .tts-word.is-active {
+        background-color: #c7e0ff;
+        box-shadow: 0 2px 0 rgba(27, 54, 122, 0.35);
+      }
+
+      /* Clickable Interactive NASA Fact Box */
+      .nasa-fact-box {
+        background: var(--nasa-sky);
+        border: 1.5px solid var(--nasa-border);
+        border-radius: var(--radius-bubble);
+        overflow: hidden;
+        transition: box-shadow 0.22s ease, border-color 0.22s ease;
+      }
+
+      .nasa-fact-toggle {
+        width: 100%;
+        background: transparent;
+        border: none;
+        padding: 15px 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        text-align: left;
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--nasa-ink);
+        min-height: 52px;
+      }
+
+      .nasa-fact-toggle:hover {
+        background: rgba(255, 255, 255, 0.45);
+      }
+
+      .nasa-toggle-hint {
+        font-family: var(--font-body);
+        font-size: 0.84rem;
+        font-weight: 800;
+        color: var(--nasa-ink);
+        background: rgba(255, 255, 255, 0.86);
+        padding: 5px 12px;
+        border-radius: 10px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .nasa-fact-body {
+        display: none;
+        padding: 0 18px 18px;
+        border-top: 1px solid rgba(59, 130, 246, 0.22);
+      }
+
+      .nasa-fact-body.is-open {
+        display: block;
+        animation: pageTransition 0.25s ease-in-out;
+      }
+
+      .nasa-fact-text {
+        margin: 12px 0 0;
+        font-size: 0.98rem;
+        line-height: 1.65;
+        color: #172554;
+        font-weight: 600;
+      }
+
+      .inline-listen-btn {
+        margin-top: 10px;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--nasa-ink);
+        border: 1px solid rgba(59, 130, 246, 0.35);
+        border-radius: 10px;
+        padding: 5px 12px;
+        min-height: 34px;
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        font-weight: 800;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: background 0.15s ease, transform 0.15s ease;
+      }
+
+      .inline-listen-btn:hover {
+        background: #ffffff;
+        transform: translateY(-1px);
+      }
+
+      /* Outro Screen */
+      .outro-card {
+        background: var(--book-paper);
+        color: var(--ink-dark);
+        border: 1px solid var(--book-border);
+        border-radius: var(--radius-book);
+        padding: 40px;
+        box-shadow: var(--card-shadow);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+      }
+
+      .outro-title {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(2.1rem, 4vw, 3rem);
+        color: var(--ink-dark);
+        line-height: 1.15;
+      }
+
+      .outro-text {
+        margin: 0;
+        font-size: 1.12rem;
+        line-height: 1.75;
+        color: var(--ink-muted);
+        max-width: 62ch;
+      }
+
+      .sources-panel {
+        width: 100%;
+        max-width: 760px;
+        background: var(--pastel-lavender-soft);
+        border: 1.5px solid var(--pastel-lavender);
+        border-radius: 20px;
+        padding: 22px 26px;
+        text-align: left;
+      }
+
+      .sources-heading {
+        margin: 0 0 12px;
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        color: var(--pastel-indigo);
+      }
+
+      .sources-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .sources-list a {
+        color: var(--nasa-ink);
+        text-decoration: none;
+        font-weight: 800;
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: #ffffff;
+        border: 1px solid #dcd4f2;
+        width: 100%;
+        transition: background 0.16s ease, border-color 0.16s ease;
+      }
+
+      .sources-list a:hover {
+        background: #f5f3ff;
+        border-color: var(--pastel-indigo-soft);
+      }
+
+      .source-url {
+        color: var(--ink-muted);
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      /* Bottom Navigation Bar */
+      .nav-controls {
+        width: 100%;
+        max-width: 1080px;
+        margin-top: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .nav-btn {
+        border: none;
+        border-radius: var(--radius-btn);
+        padding: 14px 28px;
+        min-height: 54px;
+        font-family: var(--font-display);
+        font-size: 1.12rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: transform 0.16s ease, background 0.16s ease, opacity 0.16s ease;
+      }
+
+      .nav-btn--prev {
+        background: rgba(255, 255, 255, 0.14);
+        color: var(--ink-light);
+        border: 1px solid rgba(199, 184, 234, 0.35);
+      }
+
+      .nav-btn--prev:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.24);
+        transform: translateY(-1px);
+      }
+
+      .nav-btn--next {
+        background: var(--grad-cta);
+        color: #241304;
+        box-shadow: 0 8px 20px rgba(255, 165, 86, 0.32);
+      }
+
+      .nav-btn--next:hover:not(:disabled) {
+        filter: brightness(1.04);
+        transform: translateY(-1px);
+      }
+
+      .nav-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      .page-indicator {
+        font-size: 0.96rem;
+        font-weight: 700;
+        color: var(--ink-light-muted);
+        text-align: center;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .keyboard-hint {
+        display: block;
+        font-size: 0.8rem;
+        color: rgba(216, 212, 242, 0.78);
+        font-weight: 600;
+      }
+
+      /* Outro Explorer Badges & Mini Quiz */
+      .badges-panel {
+        width: 100%;
+        max-width: 760px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .artifact-badge-card {
+        background: var(--pastel-sky-soft);
+        border: 1.5px solid var(--otty-border);
+        border-radius: 18px;
+        padding: 14px 16px;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+      }
+
+      .artifact-badge-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .artifact-badge-card.is-unlocked {
+        background: var(--pastel-amber-soft);
+        border-color: var(--pastel-amber);
+      }
+
+      .artifact-badge-status {
+        font-size: 0.78rem;
+        font-weight: 800;
+        color: var(--otty-accent);
+      }
+
+      .artifact-badge-card.is-unlocked .artifact-badge-status {
+        color: #8a4b04;
+      }
+
+      .artifact-badge-title {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--ink-dark);
+      }
+
+      .artifact-badge-sub {
+        font-size: 0.84rem;
+        font-weight: 600;
+        color: var(--ink-muted);
+      }
+
+      .quiz-panel {
+        width: 100%;
+        max-width: 760px;
+        background: #fff8ed;
+        border: 1.5px solid var(--emi-border);
+        border-radius: 20px;
+        padding: 22px 24px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .quiz-heading {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: 1.18rem;
+        color: var(--emi-accent);
+      }
+
+      .quiz-question-block {
+        background: #ffffff;
+        border: 1px solid #f2dfc8;
+        border-radius: 16px;
+        padding: 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+
+      .quiz-question-block.is-speaking {
+        border-color: var(--pastel-amber);
+        box-shadow: 0 0 0 3px rgba(255, 190, 118, 0.42);
+      }
+
+      .quiz-question-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .quiz-question-head .inline-listen-btn {
+        margin-top: 0;
+        background: var(--pastel-amber-soft);
+        color: #5b3404;
+        border-color: var(--pastel-amber);
+      }
+
+      .quiz-question-text {
+        margin: 0;
+        font-weight: 800;
+        font-size: 0.98rem;
+        color: var(--ink-dark);
+      }
+
+      .quiz-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .quiz-opt-btn {
+        background: var(--narrator-bg);
+        color: var(--ink-dark);
+        border: 1.5px solid var(--narrator-border);
+        border-radius: 12px;
+        padding: 9px 14px;
+        min-height: 40px;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-align: left;
+        transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      }
+
+      .quiz-opt-btn:hover {
+        background: var(--pastel-lavender-soft);
+        border-color: var(--pastel-indigo-soft);
+      }
+
+      .quiz-opt-btn.is-correct {
+        background: #dcfce7;
+        border-color: #22c55e;
+        color: #14532d;
+      }
+
+      .quiz-opt-btn.is-wrong {
+        background: #fee2e2;
+        border-color: #ef4444;
+        color: #7f1d1d;
+      }
+
+      .quiz-feedback {
+        margin: 0;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: var(--ink-muted);
+      }
+
+      .quiz-feedback.is-success {
+        color: #15803d;
+      }
+
+      .explorer-cert-banner {
+        background: linear-gradient(135deg, #fff2dc 0%, #fdebf0 100%);
+        border: 2px solid var(--pastel-amber);
+        border-radius: 16px;
+        padding: 14px 18px;
+        font-family: var(--font-display);
+        font-size: 1.06rem;
+        font-weight: 700;
+        color: #6b3d05;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .outro-actions-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .btn-ghost-reset {
+        background: transparent;
+        color: var(--ink-muted);
+        border: 1.5px solid var(--book-border);
+        border-radius: 16px;
+        padding: 12px 18px;
+        min-height: 50px;
+        font-family: var(--font-body);
+        font-size: 0.94rem;
+        font-weight: 800;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+
+      .btn-ghost-reset:hover {
+        background: var(--narrator-bg);
+        color: var(--ink-dark);
+      }
+
+      .sparkle-layer {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 95;
+        overflow: hidden;
+      }
+
+      @keyframes sparkleBurst {
+        0% {
+          opacity: 0;
+          transform: translate(0, 0) scale(0.4) rotate(0deg);
+        }
+        20% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translate(var(--tx), var(--ty)) scale(1.25) rotate(140deg);
+        }
+      }
+
+      .sparkle-star {
+        position: absolute;
+        left: var(--sx);
+        top: var(--sy);
+        font-size: var(--sz);
+        color: var(--sc);
+        animation: sparkleBurst 1.35s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+      }
+
+      /* Responsive Rules */
+      @media (max-width: 900px) {
+        .landing-card,
+        .panel-card {
+          grid-template-columns: 1fr;
+          padding: 24px;
+          gap: 24px;
+        }
+
+        .landing-card .art-stage {
+          order: -1;
+        }
+
+        .badges-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .chapter-intro-card,
+        .outro-card {
+          padding: 34px 24px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .header-inner {
+          padding: 10px 12px;
+          gap: 8px;
+        }
+
+        .brand-btn {
+          font-size: 0.92rem;
+          min-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .header-status-btn {
+          padding: 6px 10px;
+          min-height: 38px;
+          font-size: 0.8rem;
+          gap: 5px;
+        }
+
+        .header-status-label,
+        .header-sep,
+        .header-status-page {
+          display: none;
+        }
+
+        .header-status-compact {
+          display: inline;
+        }
+
+        .chapter-dropdown {
+          position: fixed;
+          top: 62px;
+          left: 12px;
+          right: 12px;
+          width: auto;
+          transform: none;
+          max-height: calc(100vh - 80px);
+          overflow-y: auto;
+        }
+
+        .voice-toggle-btn {
+          padding: 7px 10px;
+          min-height: 38px;
+          font-size: 0.8rem;
+          gap: 5px;
+        }
+
+        .voice-prefix {
+          display: none;
+        }
+
+        .storybook-main {
+          padding: 14px 12px 24px;
+        }
+
+        .landing-card,
+        .panel-card,
+        .outro-card,
+        .chapter-intro-card {
+          padding: 16px;
+          border-radius: 20px;
+          gap: 16px;
+        }
+
+        .landing-copy {
+          gap: 12px;
+        }
+
+        .story-kicker {
+          font-size: 0.8rem;
+          line-height: 1.4;
+        }
+
+        .landing-title {
+          font-size: 1.68rem;
+        }
+
+        .landing-intro {
+          font-size: 0.98rem;
+          line-height: 1.6;
+        }
+
+        .team-credit-plaque {
+          padding: 8px 14px;
+          font-size: 0.88rem;
+          width: 100%;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .btn-start {
+          width: 100%;
+          justify-content: center;
+          padding: 13px 20px;
+          min-height: 50px;
+          font-size: 1.1rem;
+        }
+
+        .chapter-emblem {
+          width: 112px;
+          height: 112px;
+          border-radius: 22px;
+        }
+
+        .chapter-title,
+        .outro-title {
+          font-size: 1.68rem;
+        }
+
+        .chapter-subtitle,
+        .outro-text {
+          font-size: 0.98rem;
+          line-height: 1.6;
+        }
+
+        .panel-meta-line {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 8px;
+          padding: 0;
+          font-size: 0.84rem;
+        }
+
+        .panel-meta-chapter {
+          white-space: normal;
+          line-height: 1.3;
+        }
+
+        .panel-meta-right {
+          justify-content: flex-start;
+          gap: 6px;
+        }
+
+        .replay-page-btn,
+        .mini-ctrl-btn {
+          padding: 5px 10px;
+          min-height: 34px;
+          font-size: 0.78rem;
+        }
+
+        .scene-hotspot-bar {
+          left: 8px;
+          right: 8px;
+          bottom: 8px;
+          gap: 6px;
+          flex-wrap: wrap;
+        }
+
+        .scene-hotspot-btn {
+          padding: 6px 10px;
+          min-height: 34px;
+          font-size: 0.78rem;
+          border-radius: 11px;
+        }
+
+        .scene-status-readout {
+          padding: 5px 9px;
+          font-size: 0.74rem;
+          border-radius: 10px;
+        }
+
+        .panel-story-col {
+          gap: 12px;
+        }
+
+        .narrator-box,
+        .speech-bubble {
+          padding: 13px 14px;
+          border-radius: 16px;
+        }
+
+        .speech-bubble {
+          gap: 10px;
+        }
+
+        .avatar-frame {
+          width: 44px;
+          height: 44px;
+          border-radius: 12px;
+        }
+
+        .avatar-frame svg {
+          width: 38px;
+          height: 38px;
+        }
+
+        .speaker-label {
+          font-size: 0.88rem;
+          margin-bottom: 4px;
+          gap: 6px;
+        }
+
+        .tap-hear-hint {
+          font-size: 0.72rem;
+        }
+
+        .narrator-text,
+        .speech-quote {
+          font-size: 0.98rem;
+          line-height: 1.55;
+        }
+
+        .nasa-fact-toggle {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          padding: 13px 14px;
+          font-size: 0.94rem;
+        }
+
+        .nasa-fact-body {
+          padding: 0 14px 14px;
+        }
+
+        .nasa-fact-text {
+          font-size: 0.92rem;
+        }
+
+        .quiz-panel,
+        .sources-panel {
+          padding: 16px 14px;
+          border-radius: 16px;
+        }
+
+        .quiz-question-head {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .quiz-options {
+          flex-direction: column;
+        }
+
+        .quiz-opt-btn {
+          width: 100%;
+          font-size: 0.88rem;
+          padding: 10px 12px;
+        }
+
+        .sources-list a {
+          padding: 10px 12px;
+          font-size: 0.88rem;
+          gap: 4px;
+        }
+
+        .source-url {
+          font-size: 0.8rem;
+          overflow-wrap: anywhere;
+        }
+
+        .outro-actions-row {
+          width: 100%;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .btn-ghost-reset {
+          width: 100%;
+          min-height: 46px;
+        }
+
+        .nav-controls {
+          margin-top: 14px;
+          gap: 8px;
+        }
+
+        .nav-btn {
+          padding: 10px 14px;
+          font-size: 0.92rem;
+          min-height: 44px;
+          border-radius: 13px;
+          gap: 6px;
+        }
+
+        .page-indicator {
+          font-size: 0.82rem;
+          white-space: nowrap;
+        }
+
+        .keyboard-hint {
+          display: none;
+        }
+      }
+
+      /* Mobile Landscape / Rotated Phone Layout */
+      @media (max-height: 560px) and (orientation: landscape) {
+        .header-inner {
+          padding: 6px 14px;
+          gap: 10px;
+        }
+
+        .brand-btn {
+          font-size: 0.96rem;
+          min-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .header-status-btn {
+          padding: 5px 10px;
+          min-height: 34px;
+          font-size: 0.82rem;
+          gap: 5px;
+        }
+
+        .header-status-label,
+        .header-sep,
+        .header-status-page {
+          display: none;
+        }
+
+        .header-status-compact {
+          display: inline;
+        }
+
+        .voice-toggle-btn {
+          padding: 5px 10px;
+          min-height: 34px;
+          font-size: 0.8rem;
+          gap: 5px;
+        }
+
+        .voice-prefix {
+          display: none;
+        }
+
+        .chapter-dropdown {
+          top: calc(100% + 6px);
+          max-height: calc(100dvh - 64px);
+          overflow-y: auto;
+        }
+
+        .storybook-main {
+          padding: 10px 14px 16px;
+          justify-content: flex-start;
+        }
+
+        .landing-card,
+        .panel-card {
+          grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+          gap: 16px;
+          padding: 14px 16px;
+          border-radius: 20px;
+          align-items: center;
+        }
+
+        .landing-card .art-stage {
+          order: 0;
+        }
+
+        .art-stage {
+          max-width: min(100%, calc((100dvh - 148px) * 1.333));
+          margin: 0 auto;
+        }
+
+        .landing-copy {
+          gap: 8px;
+        }
+
+        .story-kicker {
+          font-size: 0.76rem;
+          line-height: 1.35;
+        }
+
+        .landing-title {
+          font-size: 1.42rem;
+          line-height: 1.15;
+        }
+
+        .landing-intro {
+          font-size: 0.88rem;
+          line-height: 1.45;
+        }
+
+        .team-credit-plaque {
+          padding: 6px 12px;
+          font-size: 0.82rem;
+          width: auto;
+        }
+
+        .btn-start {
+          width: auto;
+          min-height: 42px;
+          padding: 9px 20px;
+          font-size: 0.98rem;
+        }
+
+        .chapter-intro-card {
+          padding: 16px 22px;
+          gap: 10px;
+          border-radius: 20px;
+        }
+
+        .chapter-emblem {
+          width: 80px;
+          height: 80px;
+          border-radius: 18px;
+        }
+
+        .chapter-title {
+          font-size: 1.45rem;
+        }
+
+        .chapter-subtitle {
+          font-size: 0.94rem;
+          line-height: 1.45;
+        }
+
+        .panel-meta-line {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 6px;
+          padding: 0;
+          font-size: 0.8rem;
+        }
+
+        .panel-meta-chapter {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .panel-meta-right {
+          justify-content: flex-start;
+          gap: 6px;
+        }
+
+        .replay-page-btn,
+        .mini-ctrl-btn {
+          min-height: 30px;
+          padding: 4px 8px;
+          font-size: 0.74rem;
+        }
+
+        .scene-hotspot-bar {
+          left: 8px;
+          right: 8px;
+          bottom: 8px;
+          gap: 6px;
+          flex-wrap: wrap;
+        }
+
+        .scene-hotspot-btn {
+          min-height: 32px;
+          padding: 5px 10px;
+          font-size: 0.75rem;
+          border-radius: 10px;
+        }
+
+        .scene-status-readout {
+          padding: 4px 8px;
+          font-size: 0.72rem;
+          border-radius: 9px;
+        }
+
+        .panel-story-col {
+          gap: 10px;
+        }
+
+        .narrator-box,
+        .speech-bubble {
+          padding: 10px 12px;
+          border-radius: 14px;
+        }
+
+        .speech-bubble {
+          gap: 10px;
+        }
+
+        .avatar-frame {
+          width: 40px;
+          height: 40px;
+          border-radius: 11px;
+        }
+
+        .avatar-frame svg {
+          width: 34px;
+          height: 34px;
+        }
+
+        .speaker-label {
+          font-size: 0.84rem;
+          margin-bottom: 3px;
+        }
+
+        .tap-hear-hint {
+          font-size: 0.7rem;
+        }
+
+        .narrator-text,
+        .speech-quote {
+          font-size: 0.92rem;
+          line-height: 1.45;
+        }
+
+        .nasa-fact-toggle {
+          flex-direction: row;
+          align-items: center;
+          padding: 10px 12px;
+          font-size: 0.88rem;
+          min-height: 40px;
+        }
+
+        .nasa-fact-body {
+          padding: 0 12px 12px;
+        }
+
+        .nasa-fact-text {
+          font-size: 0.86rem;
+          line-height: 1.5;
+        }
+
+        .outro-card {
+          padding: 18px 20px;
+          gap: 12px;
+          border-radius: 20px;
+        }
+
+        .outro-title {
+          font-size: 1.6rem;
+        }
+
+        .outro-text {
+          font-size: 0.92rem;
+          line-height: 1.5;
+        }
+
+        .badges-panel {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 8px;
+        }
+
+        .artifact-badge-card {
+          padding: 10px 12px;
+          border-radius: 14px;
+        }
+
+        .quiz-panel,
+        .sources-panel {
+          padding: 14px 16px;
+          border-radius: 16px;
+        }
+
+        .quiz-question-head {
+          flex-direction: row;
+          align-items: flex-start;
+        }
+
+        .quiz-options {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+
+        .quiz-opt-btn {
+          width: auto;
+        }
+
+        .outro-actions-row {
+          flex-direction: row;
+          width: auto;
+          gap: 10px;
+        }
+
+        .btn-ghost-reset {
+          width: auto;
+          min-height: 42px;
+          padding: 9px 16px;
+        }
+
+        .nav-controls {
+          margin-top: 10px;
+          gap: 10px;
+        }
+
+        .nav-btn {
+          min-height: 40px;
+          padding: 8px 16px;
+          font-size: 0.9rem;
+          border-radius: 12px;
+        }
+
+        .page-indicator {
+          font-size: 0.84rem;
+        }
+
+        .keyboard-hint {
+          display: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .starfield,
+        .storybook-frame,
+        #startReadingBtn {
+          animation: none !important;
+        }
+        .progress-fill {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="starfield" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <button type="button" class="brand-btn" id="brandHomeBtn" title="Return to Cover">
+          Echoes of the Cosmos
+        </button>
+
+        <div class="header-menu-wrap" id="headerMenuWrap">
+          <button
+            type="button"
+            class="header-status-btn"
+            id="headerStatus"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="chapterMenuDropdown"
+            title="Open Chapters Menu"
+          >
+            <span class="header-status-label">Cover</span>
+            <span class="header-sep" aria-hidden="true">·</span>
+            <span class="header-status-page">Page 1 of 22</span>
+            <span class="header-status-compact" aria-hidden="true">☰ 1/22</span>
+            <span class="header-caret" aria-hidden="true">▾</span>
+          </button>
+
+          <div
+            class="chapter-dropdown"
+            id="chapterMenuDropdown"
+            role="menu"
+            aria-label="Chapters Menu"
+            hidden
+          ></div>
+        </div>
+
+        <button
+          type="button"
+          class="voice-toggle-btn is-on"
+          id="autoVoiceBtn"
+          aria-pressed="true"
+        >
+          🔊 <span class="voice-prefix">Auto-</span>Voice: ON
+        </button>
+      </div>
+      <div
+        class="progress-track"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="5"
+        id="progressTrack"
+      >
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </header>
+
+    <main class="storybook-main">
+      <div class="storybook-frame" id="storybookStage" aria-live="polite"></div>
+
+      <nav class="nav-controls" id="navControls" aria-label="Storybook page navigation">
+        <button type="button" class="nav-btn nav-btn--prev" id="prevBtn">
+          <span aria-hidden="true">←</span>
+          <span>Previous</span>
+        </button>
+
+        <div class="page-indicator" id="bottomIndicator">
+          <span id="pageCountText">Page 1 of 22</span>
+          <span class="keyboard-hint">Tip: Use Left/Right arrow keys or swipe to turn pages</span>
+        </div>
+
+        <button type="button" class="nav-btn nav-btn--next" id="nextBtn">
+          <span>Next</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </nav>
+    </main>
+
+    <script>
+      (function () {
+        'use strict';
+
+        /* ===================================================================
+           UNIFORM VECTOR CHARACTER RIGS (NON-HUMANOID CHIBI ANIMALS)
+           Identical 3px cartoon outlines across every page and avatar.
+           =================================================================== */
+
+        // Emi: Adorable, non-humanoid chubby small orange fox with pointy ears,
+        // white muzzle, bushy tail, and a tiny white astronaut helmet with glass shine.
+        function drawEmi(x, y, scale, options) {
+          const s = scale || 1;
+          const opts = options || {};
+          const pose = opts.pose || 'happy';
+          const flip = opts.flip ? -1 : 1;
+          const armSalute = pose === 'salute';
+          const armBrush = pose === 'brush';
+          const armWave = pose === 'wave';
+
+          return `
+            <g transform="translate(${x}, ${y}) scale(${s * flip}, ${s})">
+              <!-- Fluffy Bushy Fox Tail -->
+              <path d="M-22 28 Q-58 18 -52 -6 Q-46 -18 -30 -8 Q-18 2 -14 20 Z" fill="var(--emi-fur)" class="cartoon-stroke"/>
+              <path d="M-52 -6 Q-46 -18 -34 -10 Q-40 -2 -44 6 Q-52 4 -52 -6 Z" fill="var(--emi-muzzle)" class="cartoon-stroke"/>
+
+              <!-- Chubby Round Non-Humanoid Animal Body -->
+              <ellipse cx="0" cy="24" rx="26" ry="24" fill="var(--emi-fur)" class="cartoon-stroke"/>
+              <ellipse cx="2" cy="27" rx="15" ry="16" fill="var(--emi-muzzle)"/>
+
+              <!-- Stubby Cute Animal Feet -->
+              <ellipse cx="-12" cy="46" rx="9" ry="5.5" fill="var(--emi-fur-shade)" class="cartoon-stroke"/>
+              <ellipse cx="12" cy="46" rx="9" ry="5.5" fill="var(--emi-fur-shade)" class="cartoon-stroke"/>
+
+              <!-- Cute Stubby Fox Paws -->
+              <ellipse cx="-24" cy="22" rx="7.5" ry="6" transform="rotate(-25 -24 22)" fill="var(--emi-fur)" class="cartoon-stroke"/>
+              ${
+                armSalute
+                  ? `<path d="M18 16 Q32 4 28 -10" fill="none" stroke="var(--emi-fur)" stroke-width="11" stroke-linecap="round"/>
+                     <path d="M18 16 Q32 4 28 -10" fill="none" class="cartoon-stroke"/>
+                     <circle cx="28" cy="-12" r="6" fill="var(--emi-muzzle)" class="cartoon-stroke"/>`
+                  : armBrush
+                  ? `<g>
+                       <ellipse cx="28" cy="22" rx="8" ry="6" transform="rotate(15 28 22)" fill="var(--emi-fur)" class="cartoon-stroke"/>
+                       <line x1="30" y1="22" x2="60" y2="12" stroke="#8d5a3b" stroke-width="5" stroke-linecap="round"/>
+                       <polygon points="58,6 70,2 72,16 60,18" fill="var(--pastel-amber)" class="cartoon-stroke"/>
+                     </g>`
+                  : armWave
+                  ? `<ellipse cx="28" cy="8" rx="8" ry="6" transform="rotate(-40 28 8)" fill="var(--emi-fur)" class="cartoon-stroke"/>`
+                  : `<ellipse cx="24" cy="22" rx="7.5" ry="6" transform="rotate(25 24 22)" fill="var(--emi-fur)" class="cartoon-stroke"/>`
+              }
+
+              <!-- Tiny White Astronaut Helmet Back & Neck Ring -->
+              <circle cx="0" cy="-12" r="35" fill="var(--emi-helmet)" class="cartoon-stroke"/>
+              <ellipse cx="0" cy="14" rx="22" ry="6" fill="var(--emi-helmet-rim)" class="cartoon-stroke"/>
+
+              <!-- Chubby Fox Head Inside Helmet -->
+              <polygon points="-22,-22 -18,-43 -4,-28" fill="var(--emi-fur)" class="cartoon-stroke"/>
+              <polygon points="22,-22 18,-43 4,-28" fill="var(--emi-fur)" class="cartoon-stroke"/>
+              <polygon points="-18,-24 -16,-36 -8,-28" fill="#ffd9c0"/>
+              <polygon points="18,-24 16,-36 8,-28" fill="#ffd9c0"/>
+
+              <ellipse cx="0" cy="-12" rx="25" ry="21" fill="var(--emi-fur)" class="cartoon-stroke"/>
+              <!-- White Fox Muzzle & Cheeks -->
+              <path d="M-23 -8 Q-12 -14 0 -6 Q12 -14 23 -8 Q22 8 0 9 Q-22 8 -23 -8 Z" fill="var(--emi-muzzle)"/>
+              <ellipse cx="-14" cy="-3" rx="4.5" ry="2.8" fill="var(--pastel-rose)" opacity="0.75"/>
+              <ellipse cx="14" cy="-3" rx="4.5" ry="2.8" fill="var(--pastel-rose)" opacity="0.75"/>
+
+              <!-- Cute Eyes, Nose & Smile -->
+              <circle cx="-9" cy="-12" r="3.4" fill="var(--cartoon-stroke)"/>
+              <circle cx="9" cy="-12" r="3.4" fill="var(--cartoon-stroke)"/>
+              <circle cx="-10" cy="-13.2" r="1.2" fill="#ffffff"/>
+              <circle cx="8" cy="-13.2" r="1.2" fill="#ffffff"/>
+              <polygon points="-3.5,-6 3.5,-6 0,-2" fill="var(--cartoon-stroke)"/>
+              <path d="M-5 1 Q0 5 5 1" fill="none" class="cartoon-stroke"/>
+
+              <!-- Glass Helmet Dome & Soft Glass Shine -->
+              <circle cx="0" cy="-12" r="31" fill="rgba(215, 240, 255, 0.24)" stroke="#a8c7e8" stroke-width="2"/>
+              <path d="M-21 -28 Q-12 -38 3 -37" fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="-23" cy="-21" r="2.2" fill="rgba(255, 255, 255, 0.9)"/>
+            </g>
+          `;
+        }
+
+        // Otty: Non-humanoid, plump, friendly brown sea otter with round ears,
+        // whiskers, and a cozy pastel blue space scarf.
+        function drawOtty(x, y, scale, options) {
+          const s = scale || 1;
+          const opts = options || {};
+          const flip = opts.flip ? -1 : 1;
+          const wave = opts.pose === 'wave';
+
+          return `
+            <g transform="translate(${x}, ${y}) scale(${s * flip}, ${s})">
+              <!-- Plump Sea Otter Tail -->
+              <path d="M18 32 Q48 36 52 24 Q50 16 26 22 Z" fill="var(--otty-fur-shade)" class="cartoon-stroke"/>
+
+              <!-- Plump Non-Humanoid Otter Body -->
+              <ellipse cx="0" cy="24" rx="28" ry="25" fill="var(--otty-fur)" class="cartoon-stroke"/>
+              <ellipse cx="0" cy="28" rx="17" ry="17" fill="var(--otty-muzzle)"/>
+
+              <!-- Cute Otter Feet & Paws -->
+              <ellipse cx="-13" cy="46" rx="10" ry="5.5" fill="var(--otty-fur-shade)" class="cartoon-stroke"/>
+              <ellipse cx="13" cy="46" rx="10" ry="5.5" fill="var(--otty-fur-shade)" class="cartoon-stroke"/>
+              <ellipse cx="-25" cy="22" rx="8" ry="6" transform="rotate(-20 -25 22)" fill="var(--otty-fur)" class="cartoon-stroke"/>
+              ${
+                wave
+                  ? `<ellipse cx="28" cy="8" rx="8" ry="6" transform="rotate(-38 28 8)" fill="var(--otty-fur)" class="cartoon-stroke"/>`
+                  : `<ellipse cx="25" cy="22" rx="8" ry="6" transform="rotate(20 25 22)" fill="var(--otty-fur)" class="cartoon-stroke"/>`
+              }
+
+              <!-- Round Otter Ears & Plump Head -->
+              <circle cx="-21" cy="-25" r="7.5" fill="var(--otty-fur-shade)" class="cartoon-stroke"/>
+              <circle cx="21" cy="-25" r="7.5" fill="var(--otty-fur-shade)" class="cartoon-stroke"/>
+              <ellipse cx="0" cy="-14" rx="26" ry="22" fill="var(--otty-fur)" class="cartoon-stroke"/>
+              <ellipse cx="0" cy="-9" rx="19" ry="15" fill="var(--otty-muzzle)"/>
+
+              <!-- Friendly Otter Eyes, Nose, Smile & Whiskers -->
+              <circle cx="-9" cy="-15" r="3.3" fill="var(--cartoon-stroke)"/>
+              <circle cx="9" cy="-15" r="3.3" fill="var(--cartoon-stroke)"/>
+              <circle cx="-10" cy="-16.2" r="1.2" fill="#ffffff"/>
+              <circle cx="8" cy="-16.2" r="1.2" fill="#ffffff"/>
+              <ellipse cx="0" cy="-8" rx="5.5" ry="3.6" fill="var(--cartoon-stroke)"/>
+              <path d="M-5 -1 Q0 4 5 -1" fill="none" class="cartoon-stroke"/>
+
+              <!-- Cute Whiskers -->
+              <line x1="-15" y1="-9" x2="-27" y2="-11" class="cartoon-stroke"/>
+              <line x1="-15" y1="-5" x2="-27" y2="-4" class="cartoon-stroke"/>
+              <line x1="15" y1="-9" x2="27" y2="-11" class="cartoon-stroke"/>
+              <line x1="15" y1="-5" x2="27" y2="-4" class="cartoon-stroke"/>
+
+              <!-- Cozy Pastel Blue Space Scarf -->
+              <path d="M10 10 L26 28 L14 31 L2 14 Z" fill="var(--otty-scarf-shade)" class="cartoon-stroke"/>
+              <rect x="-24" y="2" width="48" height="13" rx="6.5" fill="var(--otty-scarf)" class="cartoon-stroke"/>
+              <circle cx="-11" cy="8.5" r="2" fill="#ffffff"/>
+              <circle cx="2" cy="8.5" r="2" fill="var(--pastel-amber)"/>
+              <circle cx="14" cy="8.5" r="2" fill="#ffffff"/>
+            </g>
+          `;
+        }
+
+        // Uniform Star Decorations
+        function drawStars(coords) {
+          return coords
+            .map(([cx, cy, r, fill]) => {
+              const color = fill || '#ffffff';
+              return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${color}" opacity="0.9"/>`;
+            })
+            .join('');
+        }
+
+        // Uniform Avatar SVGs for Speech Bubbles (Identical 3px stroke system)
+        function getSpeakerAvatarSvg(speaker) {
+          if (speaker === 'Emi') {
+            return `<svg viewBox="-42 -52 84 80" width="48" height="48" aria-hidden="true">${drawEmi(0, 6, 0.92)}</svg>`;
+          }
+          if (speaker === 'Otty') {
+            return `<svg viewBox="-42 -48 84 78" width="48" height="48" aria-hidden="true">${drawOtty(0, 6, 0.92)}</svg>`;
+          }
+          if (speaker === 'Flik') {
+            return `<svg viewBox="0 0 64 64" width="48" height="48" aria-hidden="true">
+              <rect x="10" y="10" width="5" height="44" rx="2.5" fill="#cbd5e1" class="cartoon-stroke"/>
+              <rect x="13" y="12" width="40" height="5" rx="2.5" fill="#e2e8f0" class="cartoon-stroke"/>
+              <rect x="15" y="17" width="38" height="26" rx="4" fill="#ef6b6b" class="cartoon-stroke"/>
+              <rect x="16" y="23" width="36" height="5" fill="#ffffff"/>
+              <rect x="16" y="33" width="36" height="5" fill="#ffffff"/>
+              <rect x="15" y="17" width="18" height="14" fill="#4f6fd8" class="cartoon-stroke"/>
+              <circle cx="40" cy="27" r="2.2" fill="var(--cartoon-stroke)"/>
+              <circle cx="47" cy="27" r="2.2" fill="var(--cartoon-stroke)"/>
+              <path d="M39 33 Q43.5 37 48 33" fill="none" class="cartoon-stroke"/>
+            </svg>`;
+          }
+          if (speaker === 'Oppy') {
+            return `<svg viewBox="0 0 64 64" width="48" height="48" aria-hidden="true">
+              <rect x="29" y="20" width="6" height="14" fill="#cbd5e1" class="cartoon-stroke"/>
+              <rect x="16" y="10" width="32" height="14" rx="5" fill="#f1f5f9" class="cartoon-stroke"/>
+              <circle cx="25" cy="17" r="2.5" fill="var(--cartoon-stroke)"/>
+              <circle cx="39" cy="17" r="2.5" fill="var(--cartoon-stroke)"/>
+              <path d="M29 20 Q32 23 35 20" fill="none" class="cartoon-stroke"/>
+              <polygon points="8,34 56,34 49,44 15,44" fill="#6d83c7" class="cartoon-stroke"/>
+              <rect x="20" y="42" width="24" height="8" rx="3" fill="var(--pastel-amber)" class="cartoon-stroke"/>
+              <circle cx="18" cy="52" r="5" fill="#4b5563" class="cartoon-stroke"/>
+              <circle cx="32" cy="52" r="5" fill="#4b5563" class="cartoon-stroke"/>
+              <circle cx="46" cy="52" r="5" fill="#4b5563" class="cartoon-stroke"/>
+            </svg>`;
+          }
+          return '';
+        }
+
+        const SCENE_ALT_TEXT = {
+          cover:
+            'Emi the chubby little orange fox in a white space helmet and Otty the plump brown sea otter in a pastel blue space scarf sitting inside a cozy glowing spaceship window looking out at the starry galaxy.',
+          'ch1-p1':
+            'Emi the orange fox in a space helmet and Otty the brown sea otter in a blue scarf walking on a launchpad toward a rounded pastel cartoon rocket under a starry twilight sky.',
+          'ch1-p2':
+            'A rounded cartoon rocket blasting off from a launchpad into the starry cosmos with glowing warm flames and billowing pastel smoke clouds.',
+          'ch1-p3':
+            'Inside the cozy spaceship cabin in zero gravity, Emi and Otty float joyfully alongside floating pencils and star stickers.',
+          'ch1-p4':
+            'A cute rounded lunar lander touching down softly on the cratered gray Moon while Emi and Otty watch Earth glowing in the sky.',
+          'ch2-p1':
+            'Emi and Otty walking across powdery lunar craters and discovering a historic flagpole standing in the quiet Moon dust.',
+          'ch2-p2':
+            'Flik the friendly smiling historic lunar flag standing proudly on the Moon with Earth shining brightly in the starry sky.',
+          'ch2-p3':
+            'Close-up illustration of the Apollo 11 lunar flag held outstretched by its telescoping horizontal top crossbar in the airless lunar sky.',
+          'ch2-p4':
+            'Emi the fox giving a respectful salute while Otty stands warmly beside Flik the flag under the vast starry cosmos.',
+          'ch3-p1':
+            'Emi and Otty stepping onto the rusty red dusty plains of Mars beneath glowing pastel Martian skies and distant mesas.',
+          'ch3-p2':
+            'Emi and Otty peeking over a red Martian ridge to spot the quiet dusty solar-powered Opportunity rover parked below.',
+          'ch3-p3':
+            'Oppy the friendly Mars rover showing shiny round gray hematite blueberry pebbles nestled in the red Martian soil.',
+          'ch3-p4':
+            'Emi gently brushing red Martian dust off Oppy the rover solar panels under a soft warm pastel Martian sky.',
+          'ch4-p1':
+            'Emi and Otty standing beside a gleaming golden memorial plaque on Mars under warm twilight stars.',
+          'ch4-p2':
+            'Emi and Otty looking up at the Martian night sky as a gleaming next-generation spacecraft streaks across the stars.',
+          'ch4-p3':
+            'Emi the fox and Otty the otter standing side by side waving warmly under a glowing nebula filled with pastel stars.'
+        };
+
+        function getSceneIllustrationHtml(sceneKey, customAlt) {
+          const alt = customAlt || SCENE_ALT_TEXT[sceneKey] || 'Storybook illustration';
+          return `<img src="img/${sceneKey}.jpg" alt="${alt}" loading="eager" decoding="async" />`;
+        }
+
+        function preloadAdjacentScenes(index) {
+          [index - 1, index + 1, index + 2].forEach((idx) => {
+            if (idx >= 0 && idx < SCREENS.length && SCREENS[idx].scene) {
+              const img = new Image();
+              img.src = `img/${SCREENS[idx].scene}.jpg`;
+            }
+          });
+        }
+
+        function getChapterEmblemSvg(iconType) {
+          const stars = drawStars([
+            [28, 30, 2.5, '#fff'],
+            [126, 36, 2.5, '#ffbe76'],
+            [36, 120, 2, '#9fd8f8'],
+            [122, 124, 2.5, '#fff']
+          ]);
+
+          if (iconType === 'rocket') {
+            return `<svg viewBox="0 0 156 156" aria-hidden="true">
+              <rect width="156" height="156" fill="#2b2f6c"/>${stars}
+              <polygon points="68,108 88,108 78,136" fill="#ffbe76" class="cartoon-stroke"/>
+              <rect x="56" y="38" width="44" height="72" rx="22" fill="#fcfaff" class="cartoon-stroke"/>
+              <path d="M56 62 Q78 22 100 62 Z" fill="#f3a6b8" class="cartoon-stroke"/>
+              <circle cx="78" cy="76" r="10" fill="#9fd8f8" class="cartoon-stroke"/>
+            </svg>`;
+          }
+          if (iconType === 'moon') {
+            return `<svg viewBox="0 0 156 156" aria-hidden="true">
+              <rect width="156" height="156" fill="#2b2f6c"/>${stars}
+              <circle cx="78" cy="78" r="46" fill="#d8d5eb" class="cartoon-stroke"/>
+              <circle cx="62" cy="64" r="9" fill="#b8b5d4" class="cartoon-stroke"/>
+              <circle cx="96" cy="90" r="11" fill="#b8b5d4" class="cartoon-stroke"/>
+            </svg>`;
+          }
+          if (iconType === 'mars') {
+            return `<svg viewBox="0 0 156 156" aria-hidden="true">
+              <rect width="156" height="156" fill="#4b3869"/>${stars}
+              <circle cx="78" cy="78" r="46" fill="#d97b62" class="cartoon-stroke"/>
+              <ellipse cx="64" cy="66" rx="14" ry="8" fill="#b85d47"/>
+              <ellipse cx="94" cy="92" rx="16" ry="9" fill="#b85d47"/>
+            </svg>`;
+          }
+          return `<svg viewBox="0 0 156 156" aria-hidden="true">
+            <rect width="156" height="156" fill="#2b2f6c"/>${stars}
+            <polygon points="78,28 91,60 126,60 98,81 108,116 78,95 48,116 58,81 30,60 65,60" fill="#ffbe76" class="cartoon-stroke"/>
+          </svg>`;
+        }
+
+        // Complete 22-Page Sequential Story Flow
+        const SCREENS = [
+          {
+            type: 'landing',
+            statusLabel: 'Cover',
+            scene: 'cover'
+          },
+          {
+            type: 'chapter-intro',
+            statusLabel: 'Chapter 1',
+            chapterNumber: 'Chapter 1',
+            title: 'Chapter 1: Journey to the Moon',
+            subtitle: 'Blasting off into the great unknown toward our silver Moon!',
+            iconType: 'rocket'
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 1 · Panel 1',
+            chapterTitle: 'Chapter 1: Journey to the Moon',
+            panelLabel: 'Panel 1 of 4',
+            scene: 'ch1-p1',
+            narrator:
+              'The big day has finally arrived! Standing before the towering rocket, Emi and Otty take their first steps toward the stars.',
+            dialogue: [
+              {
+                speaker: 'Emi',
+                role: 'Emi the Fox',
+                theme: 'emi',
+                text: "Otty, I can't wait to see the stars up close!"
+              }
+            ]
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 1 · Panel 2',
+            chapterTitle: 'Chapter 1: Journey to the Moon',
+            panelLabel: 'Panel 2 of 4',
+            scene: 'ch1-p2',
+            narrator:
+              'The engines ignite with a brilliant roar. With tremendous power, the spacecraft blasts off, leaving home behind.',
+            dialogue: [
+              {
+                speaker: 'Otty',
+                role: 'Otty the Otter',
+                theme: 'otty',
+                text: 'Hold on tight! Our journey into the cosmos officially begins.'
+              }
+            ]
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 1 · Panel 3',
+            chapterTitle: 'Chapter 1: Journey to the Moon',
+            panelLabel: 'Panel 3 of 4',
+            scene: 'ch1-p3',
+            interactive: 'zero-g',
+            narrator:
+              'Gravity fades away. Inside the cozy cabin, everything floats freely in delightful silence.',
+            dialogue: [
+              {
+                speaker: 'Emi',
+                role: 'Emi the Fox',
+                theme: 'emi',
+                text: 'Look at that! Our pencils are floating right in the air without falling down!'
+              }
+            ],
+            nasaFact: {
+              title: '🛰️ NASA Fact: Weightlessness & Microgravity',
+              content:
+                'Astronauts and objects float inside orbiting spacecraft because they are in continuous free fall around Earth, creating microgravity where pencils, water droplets, and explorers drift weightlessly.'
+            }
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 1 · Panel 4',
+            chapterTitle: 'Chapter 1: Journey to the Moon',
+            panelLabel: 'Panel 4 of 4',
+            scene: 'ch1-p4',
+            narrator: 'The lunar module lands smoothly upon the soft, gray lunar dust.',
+            dialogue: [
+              {
+                speaker: 'Emi',
+                role: 'Emi the Fox',
+                theme: 'emi',
+                text: 'Hooray! We successfully landed on the Moon safe and sound!'
+              }
+            ]
+          },
+          {
+            type: 'chapter-intro',
+            statusLabel: 'Chapter 2',
+            chapterNumber: 'Chapter 2',
+            title: 'Chapter 2: The Footprint on the Moon',
+            subtitle: 'Discovering the historic Apollo 11 landing site.',
+            iconType: 'moon'
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 2 · Panel 1',
+            chapterTitle: 'Chapter 2: The Footprint on the Moon',
+            panelLabel: 'Panel 1 of 4',
+            scene: 'ch2-p1',
+            narrator:
+              'Stepping carefully across the powdery lunar soil, they explore the quiet, timeless landscape.',
+            dialogue: [
+              {
+                speaker: 'Emi',
+                role: 'Emi the Fox',
+                theme: 'emi',
+                text: "Otty, look! There's an old flag pole standing tall in the middle of this crater."
+              }
+            ]
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 2 · Panel 2',
+            chapterTitle: 'Chapter 2: The Footprint on the Moon',
+            panelLabel: 'Panel 2 of 4',
+            scene: 'ch2-p2',
+            narrator:
+              'Suddenly, in the airless vacuum, the historic fabric ripples gently and a friendly smile greets them.',
+            dialogue: [
+              {
+                speaker: 'Flik',
+                role: 'Flik (Flag)',
+                theme: 'flik',
+                text: 'Hello young explorers! Welcome to the Apollo 11 landing site.'
+              }
+            ]
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 2 · Panel 3',
+            chapterTitle: 'Chapter 2: The Footprint on the Moon',
+            panelLabel: 'Panel 3 of 4',
+            scene: 'ch2-p3',
+            interactive: 'inspect-rod',
+            narrator: null,
+            dialogue: [
+              {
+                speaker: 'Flik',
+                role: 'Flik (Flag)',
+                theme: 'flik',
+                text: 'Without my top horizontal rod, I would just droop limply in this airless vacuum!'
+              }
+            ],
+            nasaFact: {
+              title: '🚀 NASA Fact: Apollo 11 Lunar Flag Assembly',
+              content:
+                'Landed July 20, 1969 at Tranquility Base. Because the Moon has no atmosphere or wind, NASA engineers added a telescoping horizontal crossbar so the flag stays extended without wind.'
+            }
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 2 · Panel 4',
+            chapterTitle: 'Chapter 2: The Footprint on the Moon',
+            panelLabel: 'Panel 4 of 4',
+            scene: 'ch2-p4',
+            narrator: 'A moment of deep reflection and respect under the cosmic dark.',
+            dialogue: [
+              {
+                speaker: 'Emi',
+                role: 'Emi the Fox',
+                theme: 'emi',
+                text: "Thank you for preserving humanity's footprint of courage here, Flik!"
+              }
+            ]
+          },
+          {
+            type: 'chapter-intro',
+            statusLabel: 'Chapter 3',
+            chapterNumber: 'Chapter 3',
+            title: 'Chapter 3: The Resilient Rover on Mars',
+            subtitle: 'Landing on the red plains of Mars to find a dusty robotic friend.',
+            iconType: 'mars'
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 3 · Panel 1',
+            chapterTitle: 'Chapter 3: The Resilient Rover on Mars',
+            panelLabel: 'Panel 1 of 4',
+            scene: 'ch3-p1',
+            narrator:
+              'After a long voyage across the ocean of stars, they touch down safely on the rusty red plains of Meridiani Planum.',
+            dialogue: [
+              {
+                speaker: 'Emi',
+                role: 'Emi the Fox',
+                theme: 'emi',
+                text: 'The soil is the color of rust! Mars feels so quiet and mysterious.'
+              }
+            ]
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 3 · Panel 2',
+            chapterTitle: 'Chapter 3: The Resilient Rover on Mars',
+            panelLabel: 'Panel 2 of 4',
+            scene: 'ch3-p2',
+            narrator:
+              'Beyond a sloping ridge, a dusty robotic pioneer sits parked in absolute silence.',
+            dialogue: [
+              {
+                speaker: 'Otty',
+                role: 'Otty the Otter',
+                theme: 'otty',
+                text: 'Look at that... an old robotic explorer left behind from a past mission.'
+              }
+            ]
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 3 · Panel 3',
+            chapterTitle: 'Chapter 3: The Resilient Rover on Mars',
+            panelLabel: 'Panel 3 of 4',
+            scene: 'ch3-p3',
+            narrator: null,
+            dialogue: [
+              {
+                speaker: 'Oppy',
+                role: 'Opportunity (Oppy)',
+                theme: 'oppy',
+                text: 'Hello there... thank you for finding my favorite Blueberry rocks here in the crater...'
+              }
+            ],
+            nasaFact: {
+              title: '🔴 NASA Fact: Mars Exploration Rover Opportunity (MER-B)',
+              content:
+                "Landed Jan 25, 2004 in Meridiani Planum. Designed for a 90-sol mission, Oppy operated for nearly 15 years (5,111 sols), traveling 45.16 km and discovering hematite 'Blueberries' proving ancient liquid water existed on Mars."
+            }
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 3 · Panel 4',
+            chapterTitle: 'Chapter 3: The Resilient Rover on Mars',
+            panelLabel: 'Panel 4 of 4',
+            scene: 'ch3-p4',
+            interactive: 'brush-dust',
+            narrator:
+              'With utmost tenderness, a simple touch brings a spark of warmth to the silent red desert.',
+            dialogue: [
+              {
+                speaker: 'Emi',
+                role: 'Emi the Fox',
+                theme: 'emi',
+                text: 'Great job, Oppy. Your story of resilience will be remembered forever.'
+              }
+            ]
+          },
+          {
+            type: 'chapter-intro',
+            statusLabel: 'Chapter 4',
+            chapterNumber: 'Chapter 4',
+            title: 'Chapter 4: A New Horizon',
+            subtitle: 'Looking forward to the future of space exploration.',
+            iconType: 'stars'
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 4 · Panel 1',
+            chapterTitle: 'Chapter 4: A New Horizon',
+            panelLabel: 'Panel 1 of 3',
+            scene: 'ch4-p1',
+            narrator:
+              'Before moving on, they leave behind a special mark of dedication for future generations.',
+            dialogue: [
+              {
+                speaker: 'Emi',
+                role: 'Emi the Fox',
+                theme: 'emi',
+                text: 'We dedicate this to all the dreamers and engineers who dared to reach for the stars!'
+              }
+            ],
+            nasaFact: {
+              title: '🪙 NASA Fact: Historic Exploration Plaques',
+              content:
+                'Apollo 11 left a stainless-steel plaque on the Moon reading: "We came in peace for all mankind." Later missions like Mars rovers also carry tribute plaques honoring explorers and engineers.'
+            }
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 4 · Panel 2',
+            chapterTitle: 'Chapter 4: A New Horizon',
+            panelLabel: 'Panel 2 of 3',
+            scene: 'ch4-p2',
+            narrator:
+              'In the distance of the Martian night sky, a gleaming light from a next-generation spacecraft approaches.',
+            dialogue: [
+              {
+                speaker: 'Otty',
+                role: 'Otty the Otter',
+                theme: 'otty',
+                text: 'And look, Emi. The next generation of space explorers is getting ready to continue the voyage.'
+              }
+            ]
+          },
+          {
+            type: 'panel',
+            statusLabel: 'Chapter 4 · Panel 3',
+            chapterTitle: 'Chapter 4: A New Horizon',
+            panelLabel: 'Panel 3 of 3',
+            scene: 'ch4-p3',
+            narrator: 'A journey ends, but curiosity lives on forever.',
+            dialogue: [
+              {
+                speaker: 'Emi',
+                role: 'Emi the Fox',
+                theme: 'emi',
+                text: 'The universe awaits us... tomorrow, a brand new adventure begins!'
+              }
+            ]
+          },
+          {
+            type: 'explorer-challenge',
+            statusLabel: 'Explorer Challenge',
+            iconType: 'rocket'
+          },
+          {
+            type: 'outro',
+            statusLabel: 'Mission Complete',
+            iconType: 'stars'
+          }
+        ];
+
+        const STORAGE_KEY = 'echoes_cosmos_progress_v1';
+        let currentIndex = 0;
+        let autoVoiceEnabled = true;
+        let sfxEnabled = true;
+        let speechRateMultiplier = 1.0;
+        let audioUnlocked = false;
+        let celebrationShown = false;
+        let oppyDustCleared = 0;
+        const expandedFacts = new Set();
+        const visitedPages = new Set([0]);
+        let quizAnswers = {};
+
+        function loadSavedState() {
+          try {
+            const raw = window.localStorage.getItem(STORAGE_KEY);
+            if (!raw) return;
+            const parsed = JSON.parse(raw);
+            if (typeof parsed.currentIndex === 'number' && parsed.currentIndex >= 0 && parsed.currentIndex < SCREENS.length) {
+              currentIndex = parsed.currentIndex;
+            }
+            if (typeof parsed.autoVoiceEnabled === 'boolean') autoVoiceEnabled = parsed.autoVoiceEnabled;
+            if (typeof parsed.sfxEnabled === 'boolean') sfxEnabled = parsed.sfxEnabled;
+            if (typeof parsed.speechRateMultiplier === 'number' && [0.85, 1, 1.15].includes(parsed.speechRateMultiplier)) {
+              speechRateMultiplier = parsed.speechRateMultiplier;
+            }
+            if (typeof parsed.oppyDustCleared === 'number') oppyDustCleared = Math.min(3, Math.max(0, parsed.oppyDustCleared));
+            if (Array.isArray(parsed.visitedPages)) {
+              parsed.visitedPages.forEach((p) => {
+                if (typeof p === 'number') visitedPages.add(p);
+              });
+            }
+            if (Array.isArray(parsed.expandedFacts)) {
+              parsed.expandedFacts.forEach((f) => {
+                if (typeof f === 'number') expandedFacts.add(f);
+              });
+            }
+            if (parsed.quizAnswers && typeof parsed.quizAnswers === 'object') {
+              quizAnswers = parsed.quizAnswers;
+            }
+          } catch (_) {
+            // Ignore malformed local storage
+          }
+        }
+
+        function saveState() {
+          try {
+            window.localStorage.setItem(
+              STORAGE_KEY,
+              JSON.stringify({
+                currentIndex,
+                autoVoiceEnabled,
+                sfxEnabled,
+                speechRateMultiplier,
+                oppyDustCleared,
+                visitedPages: Array.from(visitedPages),
+                expandedFacts: Array.from(expandedFacts),
+                quizAnswers
+              })
+            );
+          } catch (_) {
+            // Ignore storage quota errors
+          }
+        }
+
+        const EXPLORER_QUIZ = [
+          {
+            id: 'q1',
+            question: "1. Why doesn't Flik the Apollo 11 flag droop on the Moon?",
+            options: [
+              'Strong lunar winds blow all day',
+              'NASA added a telescoping horizontal top rod',
+              'It was frozen solid by snow'
+            ],
+            correctIndex: 1,
+            successMsg: 'Correct! The Moon has no air or wind, so NASA used a horizontal rod to hold Flik upright.',
+            hintMsg: 'Hint: Tap the NASA Fact Box in Chapter 2 Panel 3!'
+          },
+          {
+            id: 'q2',
+            question: '2. What special discovery did Oppy make on Mars?',
+            options: [
+              "Tiny hematite pebbles nicknamed 'Blueberries'",
+              'Deep blue ocean waves',
+              'Green forest trees'
+            ],
+            correctIndex: 0,
+            successMsg: "Spot on! Those 'Blueberry' pebbles proved liquid water once existed on Mars!",
+            hintMsg: 'Hint: Tap the NASA Fact Box in Chapter 3 Panel 3!'
+          },
+          {
+            id: 'q3',
+            question: '3. What peaceful message was written on the Apollo 11 Lunar Plaque?',
+            options: [
+              'Keep out of this crater',
+              'We came in peace for all mankind',
+              'Robots only beyond this line'
+            ],
+            correctIndex: 1,
+            successMsg: 'Yes! Apollo 11 left that timeless message for all future explorers.',
+            hintMsg: 'Hint: Tap the NASA Fact Box in Chapter 4 Panel 1!'
+          }
+        ];
+
+        const CHAPTER_MENU_ITEMS = [
+          { label: 'Cover', meta: 'Page 1', page: 0, min: 0, max: 0 },
+          { label: 'Ch 1 · Cosmic Rocket', meta: 'Pages 2–6', page: 1, min: 1, max: 5 },
+          { label: 'Ch 2 · Moon & Flik', meta: 'Pages 7–11', page: 6, min: 6, max: 10 },
+          { label: 'Ch 3 · Mars & Oppy', meta: 'Pages 12–16', page: 11, min: 11, max: 15 },
+          { label: 'Ch 4 · New Horizon', meta: 'Pages 17–20', page: 16, min: 16, max: 19 },
+          { label: 'Explorer Challenge', meta: 'Page 21', page: 20, min: 20, max: 20 },
+          { label: 'Mission Complete', meta: 'Page 22', page: 21, min: 21, max: 21, requiresChallenge: true }
+        ];
+
+        const stageEl = document.getElementById('storybookStage');
+        const headerMenuWrapEl = document.getElementById('headerMenuWrap');
+        const headerStatusEl = document.getElementById('headerStatus');
+        const chapterMenuDropdownEl = document.getElementById('chapterMenuDropdown');
+        const progressFillEl = document.getElementById('progressFill');
+        const progressTrackEl = document.getElementById('progressTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const navControlsEl = document.getElementById('navControls');
+        const pageCountTextEl = document.getElementById('pageCountText');
+        const brandHomeBtn = document.getElementById('brandHomeBtn');
+        const autoVoiceBtn = document.getElementById('autoVoiceBtn');
+
+        const hasSpeechSupport =
+          typeof window !== 'undefined' &&
+          'speechSynthesis' in window &&
+          typeof SpeechSynthesisUtterance !== 'undefined';
+
+        let speechGeneration = 0;
+        let speechTimerId = null;
+        let wordTimerId = null;
+        let cachedVoices = [];
+        let audioCtx = null;
+
+        const ROBOTIC_VOICE_RE =
+          /espeak|albert|bad news|bahh|bells|boing|bubbles|cellos|fred|good news|jester|junior|organ|ralph|superstar|trinoids|whisper|wobble|zarvox|kathy|microsoft david|microsoft mark|microsoft zira/i;
+
+        function getAudioContext() {
+          if (typeof window === 'undefined') return null;
+          const Ctx = window.AudioContext || window.webkitAudioContext;
+          if (!Ctx) return null;
+          if (!audioCtx) {
+            audioCtx = new Ctx();
+          }
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume().catch(() => {});
+          }
+          return audioCtx;
+        }
+
+        function playStoryChime(speaker, forceSound) {
+          if ((!sfxEnabled && !forceSound) || !audioUnlocked) return;
+          const ctx = getAudioContext();
+          if (!ctx) return;
+
+          const notesBySpeaker = {
+            Emi: [659.25, 880.0],
+            Otty: [523.25, 659.25],
+            Flik: [587.33, 783.99],
+            Oppy: [523.25, 659.25],
+            Narrator: [523.25, 783.99]
+          };
+          const notes = notesBySpeaker[speaker] || notesBySpeaker.Narrator;
+          const now = ctx.currentTime;
+
+          notes.forEach((freq, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + i * 0.085);
+
+            gain.gain.setValueAtTime(0.0001, now + i * 0.085);
+            gain.gain.exponentialRampToValueAtTime(0.026, now + i * 0.085 + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.085 + 0.34);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + i * 0.085);
+            osc.stop(now + i * 0.085 + 0.36);
+          });
+        }
+
+        function playPageTurnSound() {
+          if (!sfxEnabled || !audioUnlocked) return;
+          const ctx = getAudioContext();
+          if (!ctx) return;
+
+          const now = ctx.currentTime;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(392, now);
+          osc.frequency.exponentialRampToValueAtTime(523.25, now + 0.09);
+
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.exponentialRampToValueAtTime(0.016, now + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.14);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.16);
+        }
+
+        function spawnStarCelebration() {
+          if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            return;
+          }
+          const layer = document.createElement('div');
+          layer.className = 'sparkle-layer';
+          layer.setAttribute('aria-hidden', 'true');
+          const colors = ['#ffbe76', '#f3a6b8', '#9fd8f8', '#c7b8ea', '#ffe08a'];
+          const glyphs = ['★', '✦', '✧', '✨'];
+
+          for (let i = 0; i < 18; i += 1) {
+            const star = document.createElement('span');
+            star.className = 'sparkle-star';
+            star.textContent = glyphs[i % glyphs.length];
+            const angle = (Math.PI * 2 * i) / 18 + (Math.random() * 0.3 - 0.15);
+            const dist = 90 + Math.random() * 170;
+            star.style.setProperty('--sx', `${42 + Math.random() * 16}vw`);
+            star.style.setProperty('--sy', `${36 + Math.random() * 18}vh`);
+            star.style.setProperty('--tx', `${Math.round(Math.cos(angle) * dist)}px`);
+            star.style.setProperty('--ty', `${Math.round(Math.sin(angle) * dist - 40)}px`);
+            star.style.setProperty('--sz', `${16 + Math.round(Math.random() * 14)}px`);
+            star.style.setProperty('--sc', colors[i % colors.length]);
+            layer.appendChild(star);
+          }
+
+          document.body.appendChild(layer);
+          setTimeout(() => {
+            layer.remove();
+          }, 1450);
+        }
+
+        function refreshVoices() {
+          if (!hasSpeechSupport) return [];
+          cachedVoices = window.speechSynthesis.getVoices() || [];
+          return cachedVoices;
+        }
+
+        if (hasSpeechSupport) {
+          refreshVoices();
+          if (typeof window.speechSynthesis.addEventListener === 'function') {
+            window.speechSynthesis.addEventListener('voiceschanged', refreshVoices);
+          }
+        }
+
+        function rankVoice(voices, preferredPatterns) {
+          for (const pattern of preferredPatterns) {
+            const match = voices.find((v) => pattern.test(v.name));
+            if (match) return match;
+          }
+          return voices[0] || null;
+        }
+
+        function getVoiceForRole(role) {
+          const voices = cachedVoices.length ? cachedVoices : refreshVoices();
+          const enVoices = voices.filter((v) => v.lang && v.lang.toLowerCase().startsWith('en'));
+          const basePool = enVoices.length ? enVoices : voices;
+          if (!basePool.length) return null;
+
+          const smoothPool = basePool.filter((v) => !ROBOTIC_VOICE_RE.test(v.name));
+          const pool = smoothPool.length ? smoothPool : basePool;
+
+          if (role === 'otty') {
+            return rankVoice(pool, [
+              /jenny.*natural|emma.*natural|ana.*natural|sonia.*natural|aria.*natural/i,
+              /google uk english female/i,
+              /\b(ava|zoe|samantha|karen|ana|victoria|tessa|fiona)\b/i,
+              /google us english/i,
+              /online.*natural|natural/i
+            ]);
+          }
+
+          if (role === 'emi') {
+            return rankVoice(pool, [
+              /ana.*natural|maisie.*natural|aria.*natural|libby.*natural|sonia.*natural/i,
+              /\b(ana|maisie|zoe|tessa|samantha|karen|fiona|victoria|ava)\b/i,
+              /google us english/i,
+              /google uk english female/i,
+              /online.*natural|natural/i
+            ]);
+          }
+
+          if (role === 'flik') {
+            return rankVoice(pool, [
+              /ryan.*natural|andrew.*natural|brian.*natural|guy.*natural|liam.*natural/i,
+              /google uk english male/i,
+              /\b(daniel|oliver|arthur|alex|matthew|george)\b/i,
+              /online.*natural|natural/i,
+              /google us english|samantha|aria|jenny/i
+            ]);
+          }
+
+          return rankVoice(pool, [
+            /aria.*natural|jenny.*natural|ava.*natural|sonia.*natural|libby.*natural/i,
+            /online.*natural|natural/i,
+            /google us english|google uk english female/i,
+            /\b(samantha|ava|zoe|karen|serena|moira|victoria|daniel)\b/i
+          ]);
+        }
+
+        function getSpeechProfile(speaker) {
+          if (speaker === 'Emi') {
+            const voice = getVoiceForRole('emi');
+            const isChildNamed = voice && /\b(ana|maisie)\b/i.test(voice.name);
+            return {
+              voice,
+              isChildVoice: Boolean(isChildNamed),
+              rate: 1.0,
+              pitch: isChildNamed ? 1.14 : 1.32,
+              volume: 1.0
+            };
+          }
+
+          if (speaker === 'Otty') {
+            const voice = getVoiceForRole('otty');
+            const isChildNamed = voice && /\b(ana|maisie)\b/i.test(voice.name);
+            return {
+              voice,
+              isChildVoice: Boolean(isChildNamed),
+              rate: 0.96,
+              pitch: isChildNamed ? 1.04 : 1.22,
+              volume: 1.0
+            };
+          }
+
+          if (speaker === 'Flik') {
+            const voice = getVoiceForRole('flik');
+            const isMaleNamed =
+              voice && /\b(andrew|brian|guy|ryan|liam|connor|christopher|daniel|oliver|arthur|alex|matthew|male|george)\b/i.test(voice.name);
+            return {
+              voice,
+              rate: 0.94,
+              pitch: isMaleNamed ? 1.04 : 0.91,
+              volume: 1.0
+            };
+          }
+
+          if (speaker === 'Oppy') {
+            return {
+              voice: getVoiceForRole('narrator'),
+              rate: 0.9,
+              pitch: 1.14,
+              volume: 0.98
+            };
+          }
+
+          return {
+            voice: getVoiceForRole('narrator'),
+            rate: 0.95,
+            pitch: 1.01,
+            volume: 1.0
+          };
+        }
+
+        function cleanSpeechText(text) {
+          return String(text || '')
+            .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+        }
+
+        function clampNum(val, min, max) {
+          return Math.min(max, Math.max(min, val));
+        }
+
+        function splitIntoMelodicPhrases(rawText) {
+          const cleaned = cleanSpeechText(rawText);
+          if (!cleaned) return [];
+
+          // Keep ellipsis markers intact so we can shape dreamy intonation before cleaning
+          const tokens = cleaned
+            .replace(/\.\.\./g, '…')
+            .split(/(?<=[.!?…])\s+/)
+            .map((s) => s.trim())
+            .filter(Boolean);
+
+          const phrases = [];
+          tokens.forEach((sentence) => {
+            const wordCount = sentence.split(/\s+/).length;
+            if (wordCount >= 9 && sentence.includes(',')) {
+              const commaIdx = sentence.indexOf(',');
+              const left = sentence.slice(0, commaIdx + 1).trim();
+              const right = sentence.slice(commaIdx + 1).trim();
+              if (left.split(/\s+/).length >= 3 && right.split(/\s+/).length >= 3) {
+                phrases.push(left);
+                phrases.push(right);
+                return;
+              }
+            }
+            phrases.push(sentence);
+          });
+
+          let wordCursor = 0;
+
+          return phrases.map((phrase, idx) => {
+            const hasEllipsis = phrase.endsWith('…');
+            const isExclaim = phrase.endsWith('!');
+            const isQuestion = phrase.endsWith('?');
+            const isComma = phrase.endsWith(',');
+            const isLast = idx === phrases.length - 1;
+
+            let pitchOffset = 0;
+            let rateOffset = 0;
+            let pauseAfter = 115;
+
+            if (isExclaim) {
+              pitchOffset = 0.095;
+              rateOffset = 0.03;
+              pauseAfter = 135;
+            } else if (isQuestion) {
+              pitchOffset = 0.105;
+              rateOffset = 0.01;
+              pauseAfter = 140;
+            } else if (hasEllipsis) {
+              pitchOffset = 0.035;
+              rateOffset = -0.04;
+              pauseAfter = 175;
+            } else if (isComma) {
+              pitchOffset = 0.045;
+              rateOffset = 0.015;
+              pauseAfter = 45;
+            } else if (isLast) {
+              pitchOffset = -0.035;
+              rateOffset = -0.02;
+              pauseAfter = 145;
+            } else {
+              pitchOffset = idx % 2 === 0 ? 0.03 : -0.015;
+              rateOffset = 0;
+              pauseAfter = 95;
+            }
+
+            const restored = phrase.replace(/…/g, '...');
+            const words = restored.split(/\s+/).filter(Boolean);
+            const wordStart = wordCursor;
+            const wordCount = words.length;
+            wordCursor += wordCount;
+
+            return {
+              text: restored,
+              wordStart,
+              wordCount,
+              pitchOffset,
+              rateOffset,
+              pauseAfter
+            };
+          });
+        }
+
+        function expandSegmentsWithProsody(segments) {
+          const expanded = [];
+          segments.forEach((seg, segIdx) => {
+            const phrases = splitIntoMelodicPhrases(seg.text);
+            phrases.forEach((phrase, phraseIdx) => {
+              expanded.push({
+                speaker: seg.speaker,
+                blockId: seg.blockId || null,
+                containerId: seg.containerId || seg.blockId || null,
+                isSpeakerStart: phraseIdx === 0,
+                isFirstOfScreen: segIdx === 0 && phraseIdx === 0,
+                text: phrase.text,
+                wordStart: phrase.wordStart,
+                wordCount: phrase.wordCount,
+                pitchOffset: phrase.pitchOffset,
+                rateOffset: phrase.rateOffset,
+                pauseAfter: phraseIdx === phrases.length - 1 ? Math.max(phrase.pauseAfter, 190) : phrase.pauseAfter
+              });
+            });
+          });
+          return expanded;
+        }
+
+        function renderWordSpans(text, blockId) {
+          const tokens = String(text || '').trim().split(/\s+/).filter(Boolean);
+          let wordIdx = 0;
+          return tokens
+            .map((token) => {
+              const stripped = cleanSpeechText(token);
+              if (!stripped) return token;
+              const span = `<span class="tts-word" data-tts-block="${blockId}" data-tts-word="${wordIdx}">${token}</span>`;
+              wordIdx += 1;
+              return span;
+            })
+            .join(' ');
+        }
+
+        function clearAllSpeechHighlights() {
+          stageEl.querySelectorAll('[data-tts-container].is-speaking').forEach((el) => {
+            el.classList.remove('is-speaking');
+          });
+          stageEl.querySelectorAll('.tts-word.is-active, .tts-word.is-spoken').forEach((el) => {
+            el.classList.remove('is-active', 'is-spoken');
+          });
+        }
+
+        function setActiveSpeakerContainer(containerId) {
+          stageEl.querySelectorAll('[data-tts-container]').forEach((el) => {
+            el.classList.toggle('is-speaking', Boolean(containerId) && el.getAttribute('data-tts-container') === containerId);
+          });
+        }
+
+        function setActiveWord(blockId, activeWordIdx) {
+          if (!blockId) return;
+          stageEl.querySelectorAll(`.tts-word[data-tts-block="${blockId}"]`).forEach((el) => {
+            const wIdx = Number(el.getAttribute('data-tts-word'));
+            if (wIdx < activeWordIdx) {
+              el.classList.add('is-spoken');
+              el.classList.remove('is-active');
+            } else if (wIdx === activeWordIdx) {
+              el.classList.add('is-active');
+              el.classList.remove('is-spoken');
+            } else {
+              el.classList.remove('is-active', 'is-spoken');
+            }
+          });
+        }
+
+        function markBlockPhraseSpoken(blockId, upToWordIdx) {
+          if (!blockId) return;
+          stageEl.querySelectorAll(`.tts-word[data-tts-block="${blockId}"]`).forEach((el) => {
+            const wIdx = Number(el.getAttribute('data-tts-word'));
+            if (wIdx <= upToWordIdx) {
+              el.classList.remove('is-active');
+              el.classList.add('is-spoken');
+            }
+          });
+        }
+
+        function updateAutoVoiceButton() {
+          if (!hasSpeechSupport) {
+            autoVoiceBtn.disabled = true;
+            autoVoiceBtn.innerHTML = '🔇 <span class="voice-prefix">Auto-</span>Voice: N/A';
+            return;
+          }
+          autoVoiceBtn.setAttribute('aria-pressed', autoVoiceEnabled ? 'true' : 'false');
+          autoVoiceBtn.classList.toggle('is-on', autoVoiceEnabled);
+          autoVoiceBtn.innerHTML = autoVoiceEnabled
+            ? '🔊 <span class="voice-prefix">Auto-</span>Voice: ON'
+            : '🔇 <span class="voice-prefix">Auto-</span>Voice: OFF';
+        }
+
+        function stopSpeech() {
+          speechGeneration += 1;
+          if (speechTimerId !== null) {
+            clearTimeout(speechTimerId);
+            speechTimerId = null;
+          }
+          if (wordTimerId !== null) {
+            clearTimeout(wordTimerId);
+            wordTimerId = null;
+          }
+          clearAllSpeechHighlights();
+          if (hasSpeechSupport) {
+            window.speechSynthesis.cancel();
+          }
+        }
+
+        function buildScreenSpeechSegments(screen) {
+          if (screen.type === 'landing') {
+            return [
+              {
+                speaker: 'Narrator',
+                text: 'Echoes of the Cosmos: An Interstellar Journey. Welcome, young explorers! Join Emi the chubby little orange fox, and Otty the friendly brown sea otter, on an interstellar voyage to the Moon and Mars.'
+              }
+            ];
+          }
+          if (screen.type === 'chapter-intro') {
+            return [
+              {
+                speaker: 'Narrator',
+                text: `${screen.title}. ${screen.subtitle}`
+              }
+            ];
+          }
+          if (screen.type === 'panel') {
+            const segments = [];
+            if (screen.narrator) {
+              segments.push({ speaker: 'Narrator', blockId: 'narrator', containerId: 'narrator', text: screen.narrator });
+            }
+            if (screen.dialogue && screen.dialogue.length > 0) {
+              screen.dialogue.forEach((line, idx) => {
+                segments.push({
+                  speaker: line.speaker,
+                  blockId: `dialogue-${idx}`,
+                  containerId: `dialogue-${idx}`,
+                  text: line.text
+                });
+              });
+            }
+            return segments;
+          }
+          if (screen.type === 'explorer-challenge') {
+            return [
+              {
+                speaker: 'Narrator',
+                text: 'Explorer Challenge! Check the NASA artifacts you discovered on your journey and answer the Space Explorer Mini Quiz!'
+              }
+            ];
+          }
+          if (screen.type === 'outro') {
+            return [
+              {
+                speaker: 'Narrator',
+                text: "Mission Complete! Thank you for joining Emi and Otty on this unforgettable journey through NASA's stellar history!"
+              }
+            ];
+          }
+          return [];
+        }
+
+        function playSpeechSegments(segments, forceSpeak) {
+          if (!hasSpeechSupport) return;
+          stopSpeech();
+          if ((!autoVoiceEnabled && !forceSpeak) || !audioUnlocked || !segments.length) return;
+
+          const melodicQueue = expandSegmentsWithProsody(segments);
+          if (!melodicQueue.length) return;
+
+          const activeGeneration = speechGeneration;
+          let index = 0;
+
+          function speakNext() {
+            if (activeGeneration !== speechGeneration || (!autoVoiceEnabled && !forceSpeak) || index >= melodicQueue.length) {
+              return;
+            }
+
+            const item = melodicQueue[index];
+            index += 1;
+
+            if (item.isSpeakerStart && (item.speaker !== 'Narrator' || item.isFirstOfScreen)) {
+              playStoryChime(item.speaker, forceSpeak);
+            }
+
+            setActiveSpeakerContainer(item.containerId);
+
+            const spokenText = item.text
+              .replace(/\.\.\./g, ',')
+              .replace(/\bEmi\b/gi, 'Emmy');
+            const profile = getSpeechProfile(item.speaker);
+            const utterance = new SpeechSynthesisUtterance(spokenText);
+            if (profile.voice) {
+              utterance.voice = profile.voice;
+            }
+
+            const scaledOffset = item.speaker === 'Emi' ? item.pitchOffset * 0.5 : item.pitchOffset;
+            const maxPitch = profile.isChildVoice ? 1.22 : 1.37;
+            const effectiveRate = clampNum((profile.rate + item.rateOffset) * speechRateMultiplier, 0.72, 1.25);
+            utterance.rate = effectiveRate;
+            utterance.pitch = clampNum(profile.pitch + scaledOffset, 0.85, maxPitch);
+            utterance.volume = profile.volume;
+
+            const spokenWords = spokenText.split(/\s+/).filter(Boolean);
+            const wordRanges = [];
+            let charPos = 0;
+            spokenWords.forEach((w, wIdx) => {
+              const start = spokenText.indexOf(w, charPos);
+              const end = start + w.length;
+              wordRanges.push({
+                wordIndex: item.wordStart + wIdx,
+                start,
+                end,
+                durationMs: Math.round((Math.max(2.6, w.length + (/[,.!?]/.test(w) ? 2.8 : 0.4)) * 54) / effectiveRate)
+              });
+              charPos = end;
+            });
+
+            let usedBoundary = false;
+
+            function scheduleFallbackWord(stepIdx) {
+              if (
+                activeGeneration !== speechGeneration ||
+                usedBoundary ||
+                !item.blockId ||
+                stepIdx >= wordRanges.length
+              ) {
+                return;
+              }
+              setActiveWord(item.blockId, wordRanges[stepIdx].wordIndex);
+              if (stepIdx + 1 < wordRanges.length) {
+                wordTimerId = setTimeout(() => {
+                  scheduleFallbackWord(stepIdx + 1);
+                }, wordRanges[stepIdx].durationMs);
+              }
+            }
+
+            utterance.onstart = () => {
+              if (activeGeneration !== speechGeneration) return;
+              if (item.blockId && wordRanges.length > 0) {
+                scheduleFallbackWord(0);
+              }
+            };
+
+            utterance.onboundary = (event) => {
+              if (activeGeneration !== speechGeneration || !item.blockId) return;
+              if (typeof event.charIndex === 'number' && (!event.name || event.name === 'word')) {
+                usedBoundary = true;
+                if (wordTimerId !== null) {
+                  clearTimeout(wordTimerId);
+                  wordTimerId = null;
+                }
+                const match =
+                  wordRanges.find((r) => event.charIndex < r.end) ||
+                  wordRanges[wordRanges.length - 1];
+                if (match) {
+                  setActiveWord(item.blockId, match.wordIndex);
+                }
+              }
+            };
+
+            utterance.onend = () => {
+              if (wordTimerId !== null) {
+                clearTimeout(wordTimerId);
+                wordTimerId = null;
+              }
+              if (activeGeneration !== speechGeneration) return;
+              if (item.blockId && item.wordCount > 0) {
+                markBlockPhraseSpoken(item.blockId, item.wordStart + item.wordCount - 1);
+              }
+              if (index < melodicQueue.length) {
+                speechTimerId = setTimeout(speakNext, item.pauseAfter);
+              } else {
+                speechTimerId = setTimeout(() => {
+                  if (activeGeneration === speechGeneration) {
+                    clearAllSpeechHighlights();
+                  }
+                }, 380);
+              }
+            };
+
+            utterance.onerror = () => {
+              if (wordTimerId !== null) {
+                clearTimeout(wordTimerId);
+                wordTimerId = null;
+              }
+              if (activeGeneration !== speechGeneration) return;
+              if (index < melodicQueue.length) {
+                speechTimerId = setTimeout(speakNext, 90);
+              } else {
+                clearAllSpeechHighlights();
+              }
+            };
+
+            window.speechSynthesis.speak(utterance);
+          }
+
+          speakNext();
+        }
+
+        function speakScreen(screen) {
+          playSpeechSegments(buildScreenSpeechSegments(screen));
+        }
+
+        function renderLanding(screen) {
+          return `
+            <section class="landing-card" aria-label="Storybook Cover">
+              <div class="landing-copy">
+                <div class="story-kicker">2026 NASA Space Apps Challenge · Abandoned but not Forgotten</div>
+                <h1 class="landing-title">Echoes of the Cosmos: An Interstellar Journey</h1>
+                <p class="landing-intro">
+                  Welcome, young explorers! Join Emi the chubby little orange fox and Otty the friendly brown sea otter as they travel across the stars to visit humanity's legendary history left behind on the Moon and Mars.
+                </p>
+                <div class="team-credit-plaque">
+                  <span>Created by Team Suki to Sukses</span>
+                </div>
+                <button type="button" class="btn-start" id="startReadingBtn">
+                  <span>Start Reading</span>
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
+              <div class="art-stage">
+                ${getSceneIllustrationHtml(screen.scene)}
+              </div>
+            </section>
+          `;
+        }
+
+        function renderChapterIntro(screen) {
+          return `
+            <section class="chapter-intro-card" aria-label="${screen.title}">
+              <div class="chapter-emblem">
+                ${getChapterEmblemSvg(screen.iconType)}
+              </div>
+              <div class="chapter-kicker">${screen.chapterNumber}</div>
+              <h1 class="chapter-title">${screen.title}</h1>
+              <p class="chapter-subtitle">${screen.subtitle}</p>
+              <button type="button" class="btn-start" id="chapterContinueBtn">
+                <span>Continue</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </section>
+          `;
+        }
+
+        function getSceneInteractiveOverlay(screen) {
+          if (screen.interactive === 'zero-g') {
+            return `
+              <div class="scene-hotspot-bar">
+                <button type="button" class="scene-hotspot-btn" id="zeroGHotspotBtn">
+                  <span aria-hidden="true">✨</span>
+                  <span>Float Pencils &amp; Stars</span>
+                </button>
+                <span class="scene-status-readout">Zero-G Cabin</span>
+              </div>
+            `;
+          }
+          if (screen.interactive === 'inspect-rod') {
+            return `
+              <div class="scene-hotspot-bar">
+                <button type="button" class="scene-hotspot-btn" id="inspectRodHotspotBtn">
+                  <span aria-hidden="true">🔍</span>
+                  <span>Inspect Top Crossbar</span>
+                </button>
+                <span class="scene-status-readout">Airless Moon Vacuum</span>
+              </div>
+            `;
+          }
+          if (screen.interactive === 'brush-dust') {
+            const dustOpacity = Math.max(0, 1 - oppyDustCleared / 3).toFixed(2);
+            const powerPct = 25 + oppyDustCleared * 25;
+            const isClean = oppyDustCleared >= 3;
+            return `
+              <div class="scene-dust-veil" id="sceneDustVeil" style="opacity: ${dustOpacity};"></div>
+              <div class="scene-hotspot-bar">
+                <button type="button" class="scene-hotspot-btn ${isClean ? 'is-done' : ''}" id="brushDustBtn">
+                  <span aria-hidden="true">${isClean ? '★' : '🧹'}</span>
+                  <span>${isClean ? "Oppy's Panels Sparkle!" : `Brush Red Dust (${oppyDustCleared}/3)`}</span>
+                </button>
+                <span class="scene-status-readout" id="oppyPowerReadout">Solar Power: ${powerPct}%</span>
+              </div>
+            `;
+          }
+          return '';
+        }
+
+        function renderStoryPanel(screen, index) {
+          const isFactOpen = expandedFacts.has(index);
+          const speedLabel = speechRateMultiplier === 0.85 ? '0.85×' : speechRateMultiplier === 1.15 ? '1.15×' : '1.0×';
+
+          const narratorHtml = screen.narrator
+            ? `
+              <div
+                class="narrator-box"
+                data-tts-container="narrator"
+                role="button"
+                tabindex="0"
+                aria-label="Replay narrator voice"
+              >
+                <div class="speaker-label">
+                  <span>Narrator</span>
+                  <span class="tap-hear-hint">🔊 Tap to hear</span>
+                </div>
+                <p class="narrator-text">${renderWordSpans(screen.narrator, 'narrator')}</p>
+              </div>
+            `
+            : '';
+
+          const dialogueHtml = screen.dialogue
+            .map(
+              (line, idx) => `
+                <div
+                  class="speech-bubble speech-bubble--${line.theme}"
+                  data-tts-container="dialogue-${idx}"
+                  data-dialogue-idx="${idx}"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Replay ${line.role} voice"
+                >
+                  <div class="avatar-frame">${getSpeakerAvatarSvg(line.speaker)}</div>
+                  <div class="speech-content">
+                    <div class="speaker-label">
+                      <span>${line.role}</span>
+                      <span class="tap-hear-hint">🔊 Tap to hear</span>
+                    </div>
+                    <p class="speech-quote">“${renderWordSpans(line.text, `dialogue-${idx}`)}”</p>
+                  </div>
+                </div>
+              `
+            )
+            .join('');
+
+          const nasaFactHtml = screen.nasaFact
+            ? `
+              <div class="nasa-fact-box" data-tts-container="nasa-fact">
+                <button
+                  type="button"
+                  class="nasa-fact-toggle"
+                  id="nasaFactBtn"
+                  aria-expanded="${isFactOpen ? 'true' : 'false'}"
+                >
+                  <span>${renderWordSpans(screen.nasaFact.title, 'nasa-fact-title')}</span>
+                  <span class="nasa-toggle-hint">${isFactOpen ? 'Hide Fact ▲' : 'Tap to Explore ▼'}</span>
+                </button>
+                <div class="nasa-fact-body ${isFactOpen ? 'is-open' : ''}" id="nasaFactBody">
+                  <p class="nasa-fact-text">${renderWordSpans(screen.nasaFact.content, 'nasa-fact-content')}</p>
+                  <button type="button" class="inline-listen-btn" id="nasaFactListenBtn">
+                    <span aria-hidden="true">🔊</span>
+                    <span>Listen to Fact</span>
+                  </button>
+                </div>
+              </div>
+            `
+            : '';
+
+          return `
+            <article class="panel-card" aria-label="${screen.chapterTitle}, ${screen.panelLabel}">
+              <div class="panel-visual-col">
+                <div class="panel-meta-line">
+                  <div class="panel-meta-head">
+                    <span class="panel-meta-chapter">${screen.chapterTitle}</span>
+                    <span class="panel-meta-count">${screen.panelLabel}</span>
+                  </div>
+                  <div class="panel-meta-right">
+                    <button type="button" class="mini-ctrl-btn" id="speedCycleBtn" title="Adjust reading voice speed">
+                      <span>Speed ${speedLabel}</span>
+                    </button>
+                    <button type="button" class="mini-ctrl-btn ${sfxEnabled ? '' : 'is-muted'}" id="sfxToggleBtn" title="Toggle gentle chimes and page sounds">
+                      <span>${sfxEnabled ? '🔔 SFX' : '🔕 SFX'}</span>
+                    </button>
+                    <button type="button" class="replay-page-btn" id="replayPageBtn" title="Read this page aloud again">
+                      <span aria-hidden="true">↺</span>
+                      <span>Replay</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="art-stage" id="panelArtStage">
+                  ${getSceneIllustrationHtml(screen.scene, `${screen.chapterTitle}, ${screen.panelLabel}`)}
+                  ${getSceneInteractiveOverlay(screen)}
+                </div>
+              </div>
+
+              <div class="panel-story-col">
+                ${narratorHtml}
+                ${dialogueHtml}
+                ${nasaFactHtml}
+              </div>
+            </article>
+          `;
+        }
+
+        function hasVisitedAny(pages) {
+          return pages.some((p) => visitedPages.has(p));
+        }
+
+        function renderExplorerChallenge(screen) {
+          const moonUnlocked = hasVisitedAny([7, 8, 9, 10]);
+          const marsUnlocked = hasVisitedAny([12, 13, 14, 15]);
+          const plaqueUnlocked = hasVisitedAny([17, 18, 19]);
+
+          const badges = [
+            {
+              title: 'Apollo 11 Flag (Flik)',
+              sub: 'Tranquility Base, Moon (1969)',
+              unlocked: moonUnlocked,
+              jumpPage: 8
+            },
+            {
+              title: 'Opportunity Rover (Oppy)',
+              sub: 'Meridiani Planum, Mars (2004)',
+              unlocked: marsUnlocked,
+              jumpPage: 13
+            },
+            {
+              title: 'Dreamers Plaque',
+              sub: 'Dedication to Future Explorers',
+              unlocked: plaqueUnlocked,
+              jumpPage: 17
+            }
+          ];
+
+          const badgesHtml = badges
+            .map(
+              (b) => `
+                <button
+                  type="button"
+                  class="artifact-badge-card ${b.unlocked ? 'is-unlocked' : ''}"
+                  data-jump-page="${b.jumpPage}"
+                >
+                  <span class="artifact-badge-status">${b.unlocked ? '★ Discovered' : 'Tap to Visit →'}</span>
+                  <span class="artifact-badge-title">${b.title}</span>
+                  <span class="artifact-badge-sub">${b.sub}</span>
+                </button>
+              `
+            )
+            .join('');
+
+          const allQuizCorrect = EXPLORER_QUIZ.every((q) => quizAnswers[q.id] === q.correctIndex);
+
+          const quizHtml = EXPLORER_QUIZ.map((q) => {
+            const chosen = quizAnswers[q.id];
+            const isCorrect = chosen === q.correctIndex;
+            const hasAnswered = typeof chosen === 'number';
+            return `
+              <div class="quiz-question-block" data-tts-container="quiz-${q.id}">
+                <div class="quiz-question-head">
+                  <p class="quiz-question-text">${renderWordSpans(q.question, `quiz-${q.id}`)}</p>
+                  <button
+                    type="button"
+                    class="inline-listen-btn"
+                    data-quiz-listen="${q.id}"
+                    aria-label="Listen to question ${q.id}"
+                  >
+                    <span aria-hidden="true">🔊</span>
+                    <span>Listen</span>
+                  </button>
+                </div>
+                <div class="quiz-options">
+                  ${q.options
+                    .map((opt, oIdx) => {
+                      let cls = 'quiz-opt-btn';
+                      if (chosen === oIdx) {
+                        cls += oIdx === q.correctIndex ? ' is-correct' : ' is-wrong';
+                      }
+                      return `<button type="button" class="${cls}" data-quiz-id="${q.id}" data-opt-idx="${oIdx}">${opt}</button>`;
+                    })
+                    .join('')}
+                </div>
+                ${
+                  hasAnswered
+                    ? `<p class="quiz-feedback ${isCorrect ? 'is-success' : ''}">${isCorrect ? q.successMsg : q.hintMsg}</p>`
+                    : ''
+                }
+              </div>
+            `;
+          }).join('');
+
+          return `
+            <section class="outro-card" aria-label="Explorer Challenge">
+              <div class="chapter-emblem">
+                ${getChapterEmblemSvg(screen.iconType)}
+              </div>
+              <div class="chapter-kicker">Cosmic Checkpoint</div>
+              <h1 class="outro-title">Explorer Challenge</h1>
+              <p class="outro-text">
+                Check the NASA artifacts you discovered with Emi and Otty along the way, then test your space memory in the mini quiz before Mission Complete!
+              </p>
+
+              <div class="badges-panel" aria-label="NASA Artifacts Discovered">
+                ${badgesHtml}
+              </div>
+
+              <div class="quiz-panel" aria-label="Space Explorer Mini Quiz">
+                <h2 class="quiz-heading">Space Explorer Mini Quiz</h2>
+                ${quizHtml}
+                ${
+                  allQuizCorrect
+                    ? `
+                      <div class="explorer-cert-banner">
+                        <div>★ Awesome job, Space Explorer! You remembered every cosmic echo!</div>
+                      </div>
+                    `
+                    : ''
+                }
+              </div>
+
+              <button
+                type="button"
+                class="btn-start"
+                id="finishMissionBtn"
+                ${allQuizCorrect ? '' : 'disabled'}
+              >
+                <span>${allQuizCorrect ? 'Finish Mission' : '🔒 Finish Mission'}</span>
+                <span aria-hidden="true">→</span>
+              </button>
+              ${
+                allQuizCorrect
+                  ? ''
+                  : `<p class="challenge-lock-note">Answer all 3 quiz questions correctly to unlock the next page!</p>`
+              }
+            </section>
+          `;
+        }
+
+        function renderOutro(screen) {
+          return `
+            <section class="outro-card" aria-label="Mission Complete">
+              <div class="chapter-emblem">
+                ${getChapterEmblemSvg(screen.iconType)}
+              </div>
+              <h1 class="outro-title">Mission Complete!</h1>
+              <p class="outro-text">
+                Thank you for joining Emi the fox and Otty the otter on this unforgettable journey through NASA's stellar history! Every piece of hardware left behind in space tells a story of human curiosity, courage, and science that will never be forgotten.
+              </p>
+
+              <div class="team-credit-plaque">
+                <span>Project proudly built by Team Suki to Sukses</span>
+              </div>
+
+              <div class="sources-panel">
+                <h2 class="sources-heading">Official NASA Data Sources</h2>
+                <ul class="sources-list">
+                  <li>
+                    <a href="https://solarsystem.nasa.gov" target="_blank" rel="noopener noreferrer">
+                      <span>NASA Solar System Exploration</span>
+                      <span class="source-url">(solarsystem.nasa.gov) ↗</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.nasa.gov/mission/apollo-11" target="_blank" rel="noopener noreferrer">
+                      <span>NASA Apollo 11 Mission Archive (Flag Assembly &amp; Lunar Plaque)</span>
+                      <span class="source-url">(nasa.gov/mission/apollo-11) ↗</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://science.nasa.gov/mission/mer-opportunity" target="_blank" rel="noopener noreferrer">
+                      <span>NASA Mars Exploration Rover Opportunity Archive (Meridiani Planum)</span>
+                      <span class="source-url">(science.nasa.gov/mission/mer-opportunity) ↗</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="outro-actions-row">
+                <button type="button" class="btn-start" id="readAgainBtn">
+                  <span aria-hidden="true">↺</span>
+                  <span>Read Again</span>
+                </button>
+                <button type="button" class="btn-ghost-reset" id="resetProgressBtn">
+                  <span>Reset Progress</span>
+                </button>
+              </div>
+            </section>
+          `;
+        }
+
+        function bindPanelReplayHandlers(screen) {
+          const replayBtn = document.getElementById('replayPageBtn');
+          if (replayBtn) {
+            replayBtn.addEventListener('click', () => {
+              audioUnlocked = true;
+              playSpeechSegments(buildScreenSpeechSegments(screen), true);
+            });
+          }
+
+          const speedCycleBtn = document.getElementById('speedCycleBtn');
+          if (speedCycleBtn) {
+            speedCycleBtn.addEventListener('click', () => {
+              audioUnlocked = true;
+              const order = [1.0, 1.15, 0.85];
+              const nextIdx = (order.indexOf(speechRateMultiplier) + 1) % order.length;
+              speechRateMultiplier = order[nextIdx];
+              saveState();
+              const label = speechRateMultiplier === 0.85 ? '0.85×' : speechRateMultiplier === 1.15 ? '1.15×' : '1.0×';
+              speedCycleBtn.querySelector('span').textContent = `Speed ${label}`;
+              playStoryChime('Narrator', true);
+            });
+          }
+
+          const sfxToggleBtn = document.getElementById('sfxToggleBtn');
+          if (sfxToggleBtn) {
+            sfxToggleBtn.addEventListener('click', () => {
+              audioUnlocked = true;
+              sfxEnabled = !sfxEnabled;
+              saveState();
+              sfxToggleBtn.classList.toggle('is-muted', !sfxEnabled);
+              sfxToggleBtn.querySelector('span').textContent = sfxEnabled ? '🔔 SFX' : '🔕 SFX';
+              if (sfxEnabled) playStoryChime('Narrator', true);
+            });
+          }
+
+          const zeroGBtn = document.getElementById('zeroGHotspotBtn');
+          const artStage = document.getElementById('panelArtStage');
+          if (zeroGBtn && artStage) {
+            zeroGBtn.addEventListener('click', () => {
+              audioUnlocked = true;
+              playStoryChime('Emi', true);
+              const items = ['✏️', '⭐', '🚀', '✨', '🪐'];
+              for (let i = 0; i < 6; i += 1) {
+                const el = document.createElement('span');
+                el.className = 'scene-float-item';
+                el.textContent = items[i % items.length];
+                el.style.left = `${14 + Math.random() * 72}%`;
+                el.style.top = `${35 + Math.random() * 40}%`;
+                artStage.appendChild(el);
+                setTimeout(() => el.remove(), 1450);
+              }
+            });
+          }
+
+          const inspectRodBtn = document.getElementById('inspectRodHotspotBtn');
+          if (inspectRodBtn) {
+            inspectRodBtn.addEventListener('click', () => {
+              audioUnlocked = true;
+              playStoryChime('Flik', true);
+              expandedFacts.add(currentIndex);
+              saveState();
+              const nasaFactBtn = document.getElementById('nasaFactBtn');
+              const body = document.getElementById('nasaFactBody');
+              const hint = nasaFactBtn && nasaFactBtn.querySelector('.nasa-toggle-hint');
+              if (nasaFactBtn) nasaFactBtn.setAttribute('aria-expanded', 'true');
+              if (body) body.classList.add('is-open');
+              if (hint) hint.textContent = 'Hide Fact ▲';
+              if (screen.nasaFact && hasSpeechSupport) {
+                playSpeechSegments(
+                  [
+                    { speaker: 'Narrator', blockId: 'nasa-fact-title', containerId: 'nasa-fact', text: screen.nasaFact.title },
+                    { speaker: 'Narrator', blockId: 'nasa-fact-content', containerId: 'nasa-fact', text: screen.nasaFact.content }
+                  ],
+                  true
+                );
+              }
+            });
+          }
+
+          const brushDustBtn = document.getElementById('brushDustBtn');
+          if (brushDustBtn) {
+            brushDustBtn.addEventListener('click', () => {
+              audioUnlocked = true;
+              if (oppyDustCleared < 3) {
+                oppyDustCleared += 1;
+                saveState();
+              }
+              playStoryChime(oppyDustCleared >= 3 ? 'Emi' : 'Oppy', true);
+              const veil = document.getElementById('sceneDustVeil');
+              const powerEl = document.getElementById('oppyPowerReadout');
+              if (veil) veil.style.opacity = Math.max(0, 1 - oppyDustCleared / 3).toFixed(2);
+              if (powerEl) powerEl.textContent = `Solar Power: ${25 + oppyDustCleared * 25}%`;
+              if (oppyDustCleared >= 3) {
+                brushDustBtn.classList.add('is-done');
+                brushDustBtn.innerHTML = `<span aria-hidden="true">★</span><span>Oppy's Panels Sparkle!</span>`;
+                spawnStarCelebration();
+              } else {
+                brushDustBtn.innerHTML = `<span aria-hidden="true">🧹</span><span>Brush Red Dust (${oppyDustCleared}/3)</span>`;
+              }
+            });
+          }
+
+          const narratorBox = stageEl.querySelector('.narrator-box[data-tts-container="narrator"]');
+          if (narratorBox && screen.narrator) {
+            const replayNarrator = () => {
+              audioUnlocked = true;
+              playSpeechSegments(
+                [{ speaker: 'Narrator', blockId: 'narrator', containerId: 'narrator', text: screen.narrator }],
+                true
+              );
+            };
+            narratorBox.addEventListener('click', replayNarrator);
+            narratorBox.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                replayNarrator();
+              }
+            });
+          }
+
+          stageEl.querySelectorAll('.speech-bubble[data-dialogue-idx]').forEach((bubble) => {
+            const dIdx = Number(bubble.getAttribute('data-dialogue-idx'));
+            const line = screen.dialogue && screen.dialogue[dIdx];
+            if (!line) return;
+            const replayLine = () => {
+              audioUnlocked = true;
+              playSpeechSegments(
+                [
+                  {
+                    speaker: line.speaker,
+                    blockId: `dialogue-${dIdx}`,
+                    containerId: `dialogue-${dIdx}`,
+                    text: line.text
+                  }
+                ],
+                true
+              );
+            };
+            bubble.addEventListener('click', replayLine);
+            bubble.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                replayLine();
+              }
+            });
+          });
+        }
+
+        function isExplorerChallengeComplete() {
+          return EXPLORER_QUIZ.every((q) => quizAnswers[q.id] === q.correctIndex);
+        }
+
+        function canProceedFromScreen(screen) {
+          if (!screen) return true;
+          if (screen.type === 'explorer-challenge') {
+            return isExplorerChallengeComplete();
+          }
+          return true;
+        }
+
+        function updateNavButtonStates() {
+          const total = SCREENS.length;
+          prevBtn.disabled = currentIndex === 0;
+          nextBtn.disabled = currentIndex === total - 1 || !canProceedFromScreen(SCREENS[currentIndex]);
+        }
+
+        function bindExplorerChallengeHandlers() {
+          stageEl.querySelectorAll('.artifact-badge-card[data-jump-page]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              audioUnlocked = true;
+              goToPage(Number(btn.getAttribute('data-jump-page')));
+            });
+          });
+
+          stageEl.querySelectorAll('.inline-listen-btn[data-quiz-listen]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              audioUnlocked = true;
+              const qId = btn.getAttribute('data-quiz-listen');
+              const qObj = EXPLORER_QUIZ.find((item) => item.id === qId);
+              if (!qObj) return;
+              playSpeechSegments(
+                [
+                  {
+                    speaker: 'Narrator',
+                    blockId: `quiz-${qObj.id}`,
+                    containerId: `quiz-${qObj.id}`,
+                    text: qObj.question
+                  }
+                ],
+                true
+              );
+            });
+          });
+
+          stageEl.querySelectorAll('.quiz-opt-btn[data-quiz-id]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              audioUnlocked = true;
+              const qId = btn.getAttribute('data-quiz-id');
+              const oIdx = Number(btn.getAttribute('data-opt-idx'));
+              quizAnswers[qId] = oIdx;
+              saveState();
+
+              const qObj = EXPLORER_QUIZ.find((item) => item.id === qId);
+              const isCorrect = qObj && oIdx === qObj.correctIndex;
+              if (isCorrect) {
+                playStoryChime('Emi', true);
+              }
+
+              const allCorrect = isExplorerChallengeComplete();
+              if (allCorrect && !celebrationShown) {
+                celebrationShown = true;
+                spawnStarCelebration();
+              }
+
+              stageEl.innerHTML = renderExplorerChallenge(SCREENS[currentIndex]);
+              bindExplorerChallengeHandlers();
+              updateNavButtonStates();
+              renderChapterMenu();
+
+              if (isCorrect && autoVoiceEnabled) {
+                playSpeechSegments(
+                  [
+                    {
+                      speaker: 'Emi',
+                      text: allCorrect
+                        ? 'Yay! You answered every question right! You are a Junior Cosmic Explorer!'
+                        : 'Hooray! That is right!'
+                    }
+                  ],
+                  true
+                );
+              }
+            });
+          });
+
+          const finishMissionBtn = document.getElementById('finishMissionBtn');
+          if (finishMissionBtn) {
+            finishMissionBtn.addEventListener('click', () => {
+              if (!isExplorerChallengeComplete()) return;
+              audioUnlocked = true;
+              goToPage(currentIndex + 1);
+            });
+          }
+        }
+
+        function bindOutroHandlers() {
+          const readAgainBtn = document.getElementById('readAgainBtn');
+          if (readAgainBtn) {
+            readAgainBtn.addEventListener('click', () => {
+              audioUnlocked = true;
+              goToPage(0);
+            });
+          }
+
+          const resetBtn = document.getElementById('resetProgressBtn');
+          if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+              audioUnlocked = true;
+              quizAnswers = {};
+              expandedFacts.clear();
+              visitedPages.clear();
+              visitedPages.add(0);
+              celebrationShown = false;
+              oppyDustCleared = 0;
+              try {
+                window.localStorage.removeItem(STORAGE_KEY);
+              } catch (_) {}
+              goToPage(0);
+            });
+          }
+        }
+
+        function renderScreen(shouldSpeak) {
+          stopSpeech();
+          visitedPages.add(currentIndex);
+          saveState();
+
+          const total = SCREENS.length;
+          const screen = SCREENS[currentIndex];
+          const pct = Math.round(((currentIndex + 1) / total) * 100);
+
+          progressFillEl.style.width = pct + '%';
+          progressTrackEl.setAttribute('aria-valuenow', String(pct));
+
+          headerStatusEl.innerHTML = `
+            <span class="header-status-label">${screen.statusLabel}</span>
+            <span class="header-sep" aria-hidden="true">·</span>
+            <span class="header-status-page">Page ${currentIndex + 1} of ${total}</span>
+            <span class="header-status-compact" aria-hidden="true">☰ ${currentIndex + 1}/${total}</span>
+            <span class="header-caret" aria-hidden="true">▾</span>
+          `;
+          pageCountTextEl.textContent = `Page ${currentIndex + 1} of ${total}`;
+          renderChapterMenu();
+
+          if (screen.type === 'landing') {
+            stageEl.innerHTML = renderLanding(screen);
+            navControlsEl.style.display = 'none';
+            const startBtn = document.getElementById('startReadingBtn');
+            if (startBtn) {
+              startBtn.addEventListener('click', () => {
+                audioUnlocked = true;
+                goToPage(1);
+              });
+            }
+          } else if (screen.type === 'chapter-intro') {
+            stageEl.innerHTML = renderChapterIntro(screen);
+            navControlsEl.style.display = 'flex';
+            const continueBtn = document.getElementById('chapterContinueBtn');
+            if (continueBtn) {
+              continueBtn.addEventListener('click', () => {
+                audioUnlocked = true;
+                goToPage(currentIndex + 1);
+              });
+            }
+          } else if (screen.type === 'panel') {
+            stageEl.innerHTML = renderStoryPanel(screen, currentIndex);
+            navControlsEl.style.display = 'flex';
+            bindPanelReplayHandlers(screen);
+
+            const nasaFactBtn = document.getElementById('nasaFactBtn');
+            if (nasaFactBtn) {
+              nasaFactBtn.addEventListener('click', () => {
+                audioUnlocked = true;
+                if (expandedFacts.has(currentIndex)) {
+                  expandedFacts.delete(currentIndex);
+                } else {
+                  expandedFacts.add(currentIndex);
+                }
+                saveState();
+                const body = document.getElementById('nasaFactBody');
+                const hint = nasaFactBtn.querySelector('.nasa-toggle-hint');
+                const open = expandedFacts.has(currentIndex);
+                nasaFactBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                if (body) body.classList.toggle('is-open', open);
+                if (hint) hint.textContent = open ? 'Hide Fact ▲' : 'Tap to Explore ▼';
+                if (hasSpeechSupport) {
+                  if (open && autoVoiceEnabled && screen.nasaFact) {
+                    playSpeechSegments([
+                      {
+                        speaker: 'Narrator',
+                        blockId: 'nasa-fact-title',
+                        containerId: 'nasa-fact',
+                        text: screen.nasaFact.title
+                      },
+                      {
+                        speaker: 'Narrator',
+                        blockId: 'nasa-fact-content',
+                        containerId: 'nasa-fact',
+                        text: screen.nasaFact.content
+                      }
+                    ]);
+                  } else {
+                    stopSpeech();
+                  }
+                }
+              });
+            }
+
+            const nasaFactListenBtn = document.getElementById('nasaFactListenBtn');
+            if (nasaFactListenBtn && screen.nasaFact) {
+              nasaFactListenBtn.addEventListener('click', () => {
+                audioUnlocked = true;
+                playSpeechSegments(
+                  [
+                    {
+                      speaker: 'Narrator',
+                      blockId: 'nasa-fact-title',
+                      containerId: 'nasa-fact',
+                      text: screen.nasaFact.title
+                    },
+                    {
+                      speaker: 'Narrator',
+                      blockId: 'nasa-fact-content',
+                      containerId: 'nasa-fact',
+                      text: screen.nasaFact.content
+                    }
+                  ],
+                  true
+                );
+              });
+            }
+          } else if (screen.type === 'explorer-challenge') {
+            stageEl.innerHTML = renderExplorerChallenge(screen);
+            navControlsEl.style.display = 'flex';
+            bindExplorerChallengeHandlers();
+          } else if (screen.type === 'outro') {
+            stageEl.innerHTML = renderOutro(screen);
+            navControlsEl.style.display = 'flex';
+            bindOutroHandlers();
+          }
+
+          stageEl.style.animation = 'none';
+          void stageEl.offsetWidth;
+          stageEl.style.animation = '';
+
+          updateNavButtonStates();
+
+          preloadAdjacentScenes(currentIndex);
+
+          if (shouldSpeak) {
+            speakScreen(screen);
+          }
+        }
+
+        function renderChapterMenu() {
+          const unlocked = isExplorerChallengeComplete();
+          const itemsHtml = CHAPTER_MENU_ITEMS.map((item) => {
+            const isActive = currentIndex >= item.min && currentIndex <= item.max;
+            const isLocked = Boolean(item.requiresChallenge && !unlocked);
+            return `
+              <button
+                type="button"
+                class="chapter-menu-item ${isActive ? 'is-active' : ''}"
+                role="menuitem"
+                data-jump-page="${item.page}"
+                ${isLocked ? 'disabled title="Complete the Explorer Challenge quiz first!"' : ''}
+              >
+                <span>${isLocked ? '🔒 ' : ''}${item.label}</span>
+                <span class="chapter-menu-meta">${item.meta}</span>
+              </button>
+            `;
+          }).join('');
+
+          chapterMenuDropdownEl.innerHTML = `
+            <div class="chapter-dropdown-title">Story Chapters</div>
+            ${itemsHtml}
+          `;
+        }
+
+        function setChapterMenuOpen(isOpen) {
+          chapterMenuDropdownEl.hidden = !isOpen;
+          headerStatusEl.classList.toggle('is-open', isOpen);
+          headerStatusEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+
+        function goToPage(index) {
+          if (index < 0 || index >= SCREENS.length) return;
+          setChapterMenuOpen(false);
+          stopSpeech();
+          if (index !== currentIndex) {
+            playPageTurnSound();
+          }
+          currentIndex = index;
+          renderScreen(true);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        prevBtn.addEventListener('click', () => {
+          audioUnlocked = true;
+          goToPage(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+          if (!canProceedFromScreen(SCREENS[currentIndex])) return;
+          audioUnlocked = true;
+          goToPage(currentIndex + 1);
+        });
+
+        brandHomeBtn.addEventListener('click', () => {
+          goToPage(0);
+        });
+
+        autoVoiceBtn.addEventListener('click', () => {
+          if (!hasSpeechSupport) return;
+          autoVoiceEnabled = !autoVoiceEnabled;
+          audioUnlocked = true;
+          saveState();
+          updateAutoVoiceButton();
+          if (!autoVoiceEnabled) {
+            stopSpeech();
+          } else {
+            speakScreen(SCREENS[currentIndex]);
+          }
+        });
+
+        headerStatusEl.addEventListener('click', (e) => {
+          e.stopPropagation();
+          renderChapterMenu();
+          setChapterMenuOpen(chapterMenuDropdownEl.hidden);
+        });
+
+        chapterMenuDropdownEl.addEventListener('click', (e) => {
+          const item = e.target.closest('.chapter-menu-item[data-jump-page]');
+          if (!item || item.disabled) return;
+          audioUnlocked = true;
+          goToPage(Number(item.getAttribute('data-jump-page')));
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!chapterMenuDropdownEl.hidden && !headerMenuWrapEl.contains(e.target)) {
+            setChapterMenuOpen(false);
+          }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !chapterMenuDropdownEl.hidden) {
+            setChapterMenuOpen(false);
+            headerStatusEl.focus();
+            return;
+          }
+          const activeTag = document.activeElement && document.activeElement.tagName;
+          if (activeTag === 'INPUT' || activeTag === 'TEXTAREA') {
+            return;
+          }
+          if (e.key === 'ArrowRight') {
+            if (currentIndex < SCREENS.length - 1 && canProceedFromScreen(SCREENS[currentIndex])) {
+              e.preventDefault();
+              audioUnlocked = true;
+              goToPage(currentIndex + 1);
+            }
+          } else if (e.key === 'ArrowLeft') {
+            if (currentIndex > 0) {
+              e.preventDefault();
+              audioUnlocked = true;
+              goToPage(currentIndex - 1);
+            }
+          }
+        });
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        stageEl.addEventListener(
+          'touchstart',
+          (e) => {
+            if (!e.changedTouches || !e.changedTouches.length) return;
+            touchStartX = e.changedTouches[0].clientX;
+            touchStartY = e.changedTouches[0].clientY;
+          },
+          { passive: true }
+        );
+
+        stageEl.addEventListener(
+          'touchend',
+          (e) => {
+            if (!e.changedTouches || !e.changedTouches.length) return;
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            const dy = e.changedTouches[0].clientY - touchStartY;
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+              audioUnlocked = true;
+              if (dx < 0 && currentIndex < SCREENS.length - 1 && canProceedFromScreen(SCREENS[currentIndex])) {
+                goToPage(currentIndex + 1);
+              } else if (dx > 0 && currentIndex > 0) {
+                goToPage(currentIndex - 1);
+              }
+            }
+          },
+          { passive: true }
+        );
+
+        window.addEventListener('beforeunload', stopSpeech);
+
+        loadSavedState();
+        updateAutoVoiceButton();
+        renderScreen(false);
+      })();
+    </script>
+  </body>
+</html>

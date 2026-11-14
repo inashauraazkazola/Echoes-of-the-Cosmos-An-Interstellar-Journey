@@ -1,0 +1,8 @@
+{
+  "name": "Echoes of the Cosmos: An Interstellar Journey",
+  "description": "An interactive children\u0027s web storybook for the 2026 NASA Space Apps Challenge following Emi the fox and Otty the otter across historic Moon and Mars exploration sites. Created by Team Suki to Sukses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
